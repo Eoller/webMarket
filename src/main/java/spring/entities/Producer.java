@@ -4,14 +4,14 @@ package spring.entities;
  * Created by Eoller on 24-Aug-17.
  */
 public class Producer {
-    private int id;
+    private Long id;
     private String name;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -23,23 +23,4 @@ public class Producer {
         this.name = name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Producer producer = (Producer) o;
-
-        if (id != producer.id) return false;
-        if (name != null ? !name.equals(producer.name) : producer.name != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
-    }
 }

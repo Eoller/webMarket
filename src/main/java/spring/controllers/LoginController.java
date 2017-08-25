@@ -2,6 +2,7 @@ package spring.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import spring.dao.ProductDaoInterface;
+import spring.entities.Producer;
 import spring.entities.Product;
 import spring.objects.User;
 
@@ -43,7 +44,8 @@ public class LoginController {
 
 	@RequestMapping(value = "/aa", method = RequestMethod.GET)
 	public String jumpa(ModelMap modelMap){
-		Product now = productDaoInterface.getProducts().get(1);
+		Product noaw = productDaoInterface.getProducts().get(1);
+		Producer now = noaw.getProducerId();
 		modelMap.addAttribute("product", now);
 		return "main";
 	}

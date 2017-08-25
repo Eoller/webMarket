@@ -6,20 +6,20 @@ import java.util.Arrays;
  * Created by Eoller on 24-Aug-17.
  */
 public class Product implements java.io.Serializable{
-    private int id;
+    private Long id;
     private String name;
-    private int price;
+    private Long price;
     private String dscr;
     private byte[] photo;
     private String uniqueNumber;
-    private int categoryId;
-    private int producerId;
+    private Category categoryId;
+    private Producer producerId;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -31,11 +31,11 @@ public class Product implements java.io.Serializable{
         this.name = name;
     }
 
-    public int getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 
@@ -63,19 +63,19 @@ public class Product implements java.io.Serializable{
         this.uniqueNumber = uniqueNumber;
     }
 
-    public int getCategoryId() {
+    public Category getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(Category categoryId) {
         this.categoryId = categoryId;
     }
 
-    public int getProducerId() {
+    public Producer getProducerId() {
         return producerId;
     }
 
-    public void setProducerId(int producerId) {
+    public void setProducerId(Producer producerId) {
         this.producerId = producerId;
     }
 
@@ -86,29 +86,27 @@ public class Product implements java.io.Serializable{
 
         Product product = (Product) o;
 
-        if (id != product.id) return false;
-        if (price != product.price) return false;
-        if (categoryId != product.categoryId) return false;
-        if (producerId != product.producerId) return false;
-        if (name != null ? !name.equals(product.name) : product.name != null) return false;
+        if (!id.equals(product.id)) return false;
+        if (!name.equals(product.name)) return false;
+        if (price != null ? !price.equals(product.price) : product.price != null) return false;
         if (dscr != null ? !dscr.equals(product.dscr) : product.dscr != null) return false;
         if (!Arrays.equals(photo, product.photo)) return false;
         if (uniqueNumber != null ? !uniqueNumber.equals(product.uniqueNumber) : product.uniqueNumber != null)
             return false;
-
-        return true;
+        if (!categoryId.equals(product.categoryId)) return false;
+        return producerId.equals(product.producerId);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + price;
+        int result = id.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + (price != null ? price.hashCode() : 0);
         result = 31 * result + (dscr != null ? dscr.hashCode() : 0);
         result = 31 * result + Arrays.hashCode(photo);
         result = 31 * result + (uniqueNumber != null ? uniqueNumber.hashCode() : 0);
-        result = 31 * result + categoryId;
-        result = 31 * result + producerId;
+        result = 31 * result + categoryId.hashCode();
+        result = 31 * result + producerId.hashCode();
         return result;
     }
 }

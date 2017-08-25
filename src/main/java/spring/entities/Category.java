@@ -4,14 +4,14 @@ package spring.entities;
  * Created by Eoller on 24-Aug-17.
  */
 public class Category {
-    private int id;
+    private Long id;
     private String name;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -23,23 +23,4 @@ public class Category {
         this.name = name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Category category = (Category) o;
-
-        if (id != category.id) return false;
-        if (name != null ? !name.equals(category.name) : category.name != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
-    }
 }

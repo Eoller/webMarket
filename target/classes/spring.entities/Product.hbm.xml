@@ -5,13 +5,30 @@
 <hibernate-mapping>
 
     <class name="spring.entities.Product" table="product" schema="springshop">
-        <id name="id" column="id"/>
-        <property name="name" column="name"/>
-        <property name="price" column="price"/>
-        <property name="dscr" column="dscr"/>
-        <property name="photo" column="photo"/>
-        <property name="uniqueNumber" column="unique_number"/>
-        <property name="categoryId" column="category_id"/>
-        <property name="producerId" column="producer_id"/>
+        <id name="id" type="java.lang.Long">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name" not-null="true"/>
+        </property>
+        <property name="price" type="java.lang.Long">
+            <column name="price" not-null="true"/>
+        </property>
+        <property name="dscr" type="java.lang.String">
+            <column name="dscr" not-null="false"/>
+        </property>
+        <property name="photo" type="binary">
+            <column name="photo" not-null="false"/>
+        </property>
+        <property name="uniqueNumber" type="java.lang.String">
+            <column name="unique_number" not-null="false"/>
+        </property>
+        <many-to-one class="spring.entities.Category" fetch="join" name="categoryId" lazy="false">
+            <column name="category_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="spring.entities.Producer" fetch="join" name="producerId" lazy="false">
+            <column name="producer_id" not-null="true"/>
+        </many-to-one>
     </class>
 </hibernate-mapping>

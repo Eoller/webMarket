@@ -1,5 +1,7 @@
 package spring.dao;
 
+import spring.entities.Category;
+import spring.entities.Producer;
 import spring.entities.Product;
 
 import java.util.List;
