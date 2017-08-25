@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="spring.entities.Product" table="product" schema="springshop">
+        <id name="id" column="id"/>
+        <property name="name" column="name"/>
+        <property name="price" column="price"/>
+        <property name="dscr" column="dscr"/>
+        <property name="photo" column="photo"/>
+        <property name="uniqueNumber" column="unique_number"/>
+        <property name="categoryId" column="category_id"/>
+        <property name="producerId" column="producer_id"/>
+    </class>
+</hibernate-mapping>
