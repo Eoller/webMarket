@@ -12,4 +12,8 @@ import java.util.List;
 public interface ProductDaoInterface {
 
     public List<Product> getProducts();
+    public List<Product> getProducts(Category category);
+    public List<Product> getProducts(Producer producer);
+    public List<Product> getProducts(String productName);
+    public List<Product> getProducts(Character letter);
 }

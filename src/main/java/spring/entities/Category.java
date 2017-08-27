@@ -3,7 +3,7 @@ package spring.entities;
 /**
  * Created by Eoller on 24-Aug-17.
  */
-public class Category {
+public class Category implements java.io.Serializable{
     private Long id;
     private String name;
 

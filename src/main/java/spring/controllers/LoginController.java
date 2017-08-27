@@ -1,7 +1,10 @@
 package spring.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
+import spring.dao.CategoryDaoImpl;
+import spring.dao.CategoryDaoInterface;
 import spring.dao.ProductDaoInterface;
+import spring.entities.Category;
 import spring.entities.Producer;
 import spring.entities.Product;
 import spring.objects.User;
@@ -21,6 +24,8 @@ public class LoginController {
 
 	@Autowired
 	private ProductDaoInterface productDaoInterface;
+	@Autowired
+	private CategoryDaoInterface categoryDaoInterface;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView main(HttpSession session) {
@@ -37,16 +42,14 @@ public class LoginController {
 
 	@RequestMapping(value = "/a", method = RequestMethod.GET)
 	public String jump(ModelMap modelMap){
-		User now = new User("lolka");
-		modelMap.addAttribute("user", now);
 		return "main";
 	}
 
 	@RequestMapping(value = "/aa", method = RequestMethod.GET)
 	public String jumpa(ModelMap modelMap){
-		Product noaw = productDaoInterface.getProducts().get(1);
-		Producer now = noaw.getProducerId();
-		modelMap.addAttribute("product", now);
+		Category random = categoryDaoInterface.getCategories().get(1);
+		Product noaw = productDaoInterface.getProducts(random).get(0);
+		modelMap.addAttribute("product", noaw);
 		return "main";
 	}
 }
