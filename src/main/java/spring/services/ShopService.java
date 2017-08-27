@@ -1,7 +1,9 @@
 package spring.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import spring.dao.ProductDaoInterface;
+import spring.entities.Category;
 import spring.entities.Product;
 
 import java.util.List;
@@ -10,10 +12,19 @@ import java.util.List;
  * Created by Eoller on 27-Aug-17.
  */
 @Component
-public class ShopService {
+public class ShopService implements ShopServiceInterface{
 
+    @Autowired
     private ProductDaoInterface productDaoInterface;
 
-    private List<Product> products;
 
+    @Override
+    public List<Product> searchProductBySearchString(String searchString) {
+        return productDaoInterface.getProducts(searchString);
+    }
+
+    @Override
+    public List<Product> searchProductByCategory(Category category) {
+        return productDaoInterface.getProducts(category);
+    }
 }

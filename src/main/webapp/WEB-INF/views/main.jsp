@@ -1,4 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
 <title>Home</title>
@@ -11,9 +14,37 @@
 
 <p>Hello ${user.name}!</p>
 <p>Your password is  ${user.password}!</p>
-<a href="#">dima</a>
+<c:if test="${!empty genres}">
+<c:forEach items="${genres}" var="genre">
+    <a href="/internetMarket-1.0-SNAPSHOT/gen/${genre.id}/${genre.name}">${genre.name}</a>
+</c:forEach></c:if>
 <p>${product.name}</p>
 
+<form:form method="POST" commandName="searchCriteria" action="/internetMarket-1.0-SNAPSHOT/a">
+    <form:label path="searchString">PutSearchStringHere</form:label>
+    <form:password path="searchString"/>
+    </fieldset>
+    <footer>
+        <input type="submit" class="btnLogin" value="Search" tabindex="4">
+    </footer>
+</form:form>
+
+<c:if test="${!empty list}">
+    <table class="data" border="1">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>dscr</th>
+        </tr>
+        <c:forEach items="${list}" var="abc">
+            <tr>
+                <td>${abc.id}</td>
+                <td>${abc.name}</td>
+                <td>${abc.dscr}</td>
+            </tr>
+        </c:forEach>
+    </table>
+</c:if>
 
 
 
