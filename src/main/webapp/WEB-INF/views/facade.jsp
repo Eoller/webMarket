@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Home</title>
@@ -32,11 +32,11 @@
                 </div>
                 <div id="navbarCollapse" class="collapse navbar-collapse navbar-right">
                     <ul class="nav nav-pills">
-                        <li class="active"> <a href="#">Main</a> </li>
-                        <li> <a href="#">News</a> </li>
-                        <li> <a href="#">Contact</a> </li>
-                        <li> <a href="#">Forum</a> </li>
-                        <li> <a href="#">Sales</a> </li>
+                        <li class="active"><a href="#">Main</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Forum</a></li>
+                        <li><a href="#">Sales</a></li>
                     </ul>
                 </div>
             </div>
@@ -47,9 +47,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 leftmenu">
-                    <div class="list-group">
+                    <div class="list-group listGenre">
                         <c:forEach items="${genreList}" var="genre">
-                            <a href="${context}/getList/${genre.id}/${genre.name}" class="list-group-item">${genre.name}</a>
+                            <a href="${context}/getList/${genre.id}/${genre.name}"
+                               class="list-group-item">${genre.name}</a>
                         </c:forEach>
                     </div>
                 </div>
@@ -57,48 +58,44 @@
                     <h2>Our products</h2>
                     <hr>
                     <div class="container-fluid">
-                    <div class="panel panel-default">
-                        <table class="table" border="0">
-                            <tr>
-                                <th>id</th>
-                                <th>name</th>
-                                <th>dscr</th>
-                            </tr>
-                            <c:forEach items="${productList}" var="abc">
-                                <tr>
-                                    <td>${abc.id}</td>
-                                    <td>${abc.name}</td>
-                                    <td>${abc.dscr}</td>
-                                </tr>
-                            </c:forEach>
-                        </table>
-                    </div>
-                    </div>
+                        <c:forEach items="${productList}" var="abc">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container-fluid">
+                                        <div class="panel panel-default">
+                                            <table class="table" border="0">
+                                                <tr>
+                                                    <th>id</th>
+                                                    <th>name</th>
+                                                    <th>dscr</th>
+                                                </tr>
 
-                    </div>
+                                                <tr>
+                                                    <td>${abc.id}</td>
+                                                    <td>${abc.name}</td>
+                                                    <td>${abc.dscr}</td>
+                                                </tr>
 
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="clear"></div>
     </div>
-
-    <footer>
-        <div class="container">
-            <p class="text-center">This web page was creating by Yahor Melnik. 2017</p>
-        </div>
-    </footer>
+    <div class="clear"></div>
 </div>
 
-
-
-
-
-
-
-
-
-
+<footer>
+    <div class="container">
+        <p class="text-center">This web page was creating by Yahor Melnik. 2017</p>
+    </div>
+</footer>
+</div>
 
 
 <script src="${context}/webjars/jquery/3.2.1/jquery.min.js"></script>
