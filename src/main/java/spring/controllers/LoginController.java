@@ -1,6 +1,7 @@
 package spring.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 import spring.dao.CategoryDaoImpl;
 import spring.dao.CategoryDaoInterface;
 import spring.dao.ProductDaoInterface;
@@ -11,9 +12,6 @@ import spring.objects.SearchCriteria;
 import spring.objects.User;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.ModelAndView;
@@ -30,13 +28,7 @@ public class LoginController {
 	@Autowired
 	private CategoryDaoInterface categoryDaoInterface;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView main(HttpSession session) {
 
-		WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(session.getServletContext());
-
-		return new ModelAndView("login", "user", new User());
-	}
 
 	@RequestMapping(value = "/check-user", method = RequestMethod.POST)
 	public ModelAndView checkUser(@ModelAttribute("user") User user) {
@@ -44,14 +36,19 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/a", method = RequestMethod.GET)
-	public String jump(ModelMap modelMap){
-		modelMap.addAttribute("searchCriteria", new SearchCriteria());
+	public String jump(@ModelAttribute SearchCriteria searchCriteria, ModelMap modelMap){
+		modelMap.addAttribute("searchCriteria", searchCriteria);
 		modelMap.addAttribute("genres", categoryDaoInterface.getCategories());
 		return "main";
 	}
 
+	@ModelAttribute("searchCriteria")
+	public SearchCriteria initial(){
+		return new SearchCriteria();
+	}
+
 	@RequestMapping(value = "/a", method = RequestMethod.POST)
-	public String answer(@ModelAttribute("searchCriteria") SearchCriteria searchCriteria, ModelMap modelMap){
+	public String answer(@ModelAttribute SearchCriteria searchCriteria, ModelMap modelMap){
 		modelMap.addAttribute("genres", categoryDaoInterface.getCategories());
 		modelMap.addAttribute("list", shopServiceInterface.searchProductBySearchString(searchCriteria.getSearchString()));
 		return "main";
@@ -64,15 +61,15 @@ public class LoginController {
 		return "main";
 	}
 	@RequestMapping(value = "/gen", method = RequestMethod.GET)
-	public String genrSearch(ModelMap modelMap){
-		modelMap.addAttribute("searchCriteria", new SearchCriteria());
+	public String genrSearch(@ModelAttribute("searchCriteria") SearchCriteria searchCriteria, ModelMap modelMap){
+		modelMap.addAttribute("searchCriteria", searchCriteria);
 		modelMap.addAttribute("genres", categoryDaoInterface.getCategories());
 		return "main";
 	}
 
 	@RequestMapping(value = "/gen/{id}/{name}", method = RequestMethod.GET)
-	public String genrSearch(@ModelAttribute("id") Long id, @ModelAttribute("name") String name, ModelMap modelMap){
-		modelMap.addAttribute("searchCriteria", new SearchCriteria());
+	public String genrSearch(@ModelAttribute("searchCriteria") SearchCriteria searchCriteria, @PathVariable("id") Long id, @PathVariable("name") String name, ModelMap modelMap){
+		modelMap.addAttribute("searchCriteria", searchCriteria);
 		modelMap.addAttribute("genres", categoryDaoInterface.getCategories());
 		Category category = new Category();
 		category.setId(id);

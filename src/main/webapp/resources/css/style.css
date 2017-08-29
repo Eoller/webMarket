@@ -1,0 +1,56 @@
+.header a, a:hover {
+	color: #271a15;
+	text-decoration: none;
+}
+
+.header h1 {
+	letter-spacing: 15px;
+	font-size: 300%;
+}
+
+.header p {
+	letter-spacing: 3px;
+	color: white;
+	font-size: 90%;
+}
+
+.navbar-inverse {
+	padding: 1%;
+	background-color: #c70707 !important;
+}
+
+.nav-pills>li>a {
+	color: #fff;
+}
+
+.nav-pills>li>a:hover {
+	background-color: red;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: #fff;
+    background-color: #000000;
+}
+
+.clear{
+	clear: both;
+	height: 63px;
+}
+
+.wrapper{
+	min-height: 100%;
+}
+
+html, body{
+	height: 100%;
+}
+
+footer{
+	color: #666;
+	background-color: #222;
+	padding: 17px 0px 18px 0px;
+}
+
+footer p{
+	color: #999;
+}
