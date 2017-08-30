@@ -37,6 +37,12 @@
 	height: 63px;
 }
 
+.searchForm{
+	padding-bottom: 23px;
+}
+.form-control {
+	width: 600px !important;
+}
 .wrapper{
 	min-height: 100%;
 }
@@ -47,7 +53,7 @@ html, body{
 
 footer{
 	color: #666;
-	background-color: #222;
+	background-color: #080606;
 	padding: 17px 0px 18px 0px;
 }
 

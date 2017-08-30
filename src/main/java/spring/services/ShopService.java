@@ -27,4 +27,9 @@ public class ShopService implements ShopServiceInterface{
     public List<Product> searchProductByCategory(Category category) {
         return productDaoInterface.getProducts(category);
     }
+
+    @Override
+    public Product searchProductById(Long id) {
+        return productDaoInterface.getProduct(id);
+    }
 }

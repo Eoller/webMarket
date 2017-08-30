@@ -16,4 +16,5 @@ public interface ProductDaoInterface {
     public List<Product> getProducts(Producer producer);
     public List<Product> getProducts(String productName);
     public List<Product> getProducts(Character letter);
+    public Product getProduct(Long id);
 }

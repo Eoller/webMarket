@@ -11,6 +11,7 @@ import spring.entities.Category;
 import spring.entities.Producer;
 import spring.entities.Product;
 
+import javax.swing.*;
 import java.util.List;
 
 /**
@@ -70,6 +71,14 @@ public class ProductDaoImpl implements ProductDaoInterface {
     public List<Product> getProducts(Character letter) {
         List<Product> products = createProductList(createProductCriteria().add(Restrictions.ilike("p.name", letter.toString(), MatchMode.START)));
         return products;
+    }
+
+    @Override
+    @Transactional
+    public Product getProduct(Long id) {
+        List<Product> products = createProductList(createProductCriteria().add(Restrictions.eq("p.id", id)));
+        Product product = products.get(0);
+        return product;
     }
 
     private DetachedCriteria createProductCriteria(){

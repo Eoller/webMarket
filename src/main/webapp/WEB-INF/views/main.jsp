@@ -17,12 +17,12 @@
 </c:forEach></c:if>
 <p>${product.name}</p>
 
-<form:form method="POST" commandName="searchCriteria" action="/internetMarket-1.0-SNAPSHOT/a">
+<form:form method="POST" commandName="searchCriteria" cssClass="navbar-form navbar-left" action="/internetMarket-1.0-SNAPSHOT/a">
     <form:label path="searchString">PutSearchStringHere</form:label>
     <form:password path="searchString"/>
     </fieldset>
     <footer>
-        <input type="submit" class="btnLogin " value="Search" tabindex="4">
+        <input type="submit" class="btn btn-default" value="Search" tabindex="4">
     </footer>
 </form:form>
 
