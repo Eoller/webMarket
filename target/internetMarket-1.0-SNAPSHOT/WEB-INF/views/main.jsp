@@ -12,8 +12,8 @@
 <p>Hello ${user.name}!</p>
 <p>Your password is  ${user.password}!</p>
 <c:if test="${!empty genres}">
-<c:forEach items="${genres}" var="genre">
-    <a href="${pageContext.request.contextPath}/gen/${genre.id}/${genre.name}">${genre.name}</a>
+<c:forEach items="${genres}" var="category">
+    <a href="${pageContext.request.contextPath}/gen/${category.id}/${category.name}">${category.name}</a>
 </c:forEach></c:if>
 <p>${product.name}</p>
 

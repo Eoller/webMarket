@@ -32,6 +32,11 @@
     background-color: #000000;
 }
 
+.list-group>li.active>a,.list-group>li.active>a:focus, .list-group>li.active>a:hover{
+	color: #fff;
+}
+
+
 .clear{
 	clear: both;
 	height: 63px;
@@ -41,14 +46,52 @@
 	padding-bottom: 23px;
 }
 .form-control {
-	width: 600px !important;
+	width: 550px !important;
 }
 .wrapper{
 	min-height: 100%;
 }
 
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+	color: #fff;
+	background-color: #000000;
+}
+
+.productPhoto img{
+	max-width: 240px !important;
+}
+
+.caption h3, a, p{
+	text-align: center;
+}
+
+.caption h3{
+	margin-top: 0px !important;
+	vertical-align: bottom;
+}
 html, body{
 	height: 100%;
+}
+@media (max-width: 767px) {
+	.nav-pills>li {
+		float: none;
+	}
+
+	.nav-pills {
+		text-align: center;
+	}
+
+	.header h1 {
+		font-size: 280%;
+		letter-spacing: 5px;
+	}
+
+	.header {
+		text-align: center;
+	}
+}
+.searchForm {
+	margin-left: -30px;
 }
 
 footer{
@@ -61,6 +104,10 @@ footer p{
 	color: #999;
 }
 
-.listGenre {
+.thumbnail {
+	height: 375px !important;
+}
+
+.listCategory {
 	padding-top: 73px;
 }

@@ -81,6 +81,12 @@ public class ProductDaoImpl implements ProductDaoInterface {
         return product;
     }
 
+    @Override
+    @Transactional
+    public void addProduct(Product product) {
+        sessionFactory.getCurrentSession().save(product);
+    }
+
     private DetachedCriteria createProductCriteria(){
         DetachedCriteria productListCriteria = DetachedCriteria.forClass(Product.class, "p");
         createAliases(productListCriteria);

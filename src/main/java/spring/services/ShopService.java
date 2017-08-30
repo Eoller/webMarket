@@ -32,4 +32,14 @@ public class ShopService implements ShopServiceInterface{
     public Product searchProductById(Long id) {
         return productDaoInterface.getProduct(id);
     }
+
+    @Override
+    public List<Product> getAllProducts() {
+        return productDaoInterface.getProducts();
+    }
+
+    @Override
+    public void addProduct(Product product) {
+        productDaoInterface.addProduct(product);
+    }
 }

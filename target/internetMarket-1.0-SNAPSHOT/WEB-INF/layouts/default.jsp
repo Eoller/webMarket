@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>Home</title>
+    <meta charset="utf-8">
     <link href="<c:url value="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>" rel="stylesheet"/>
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
     <c:set var="context" value="${pageContext.request.contextPath}"/>
@@ -24,13 +25,34 @@
                         <tiles:insertAttribute name="menu" ignore="true"/>
                     </div>
                     <div class="col-lg-9" rightmenu>
-                        <div class="container-fluid searchForm">
-                            <form:form method="POST" commandName="searchCriteria" class="navbar-form navbar-left" action="${context}/searchString">
-                                <div class="form-group">
-                                    <form:input path="searchString" class="form-control" placeholder="Search" />
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <div class="container-fluid searchForm">
+                                        <form:form method="POST" commandName="searchCriteria"
+                                                   class="navbar-form navbar-left" action="${context}/searchString">
+                                            <div class="form-group">
+                                            <form:input path="searchString" class="form-control"
+                                                        placeholder="Search"/>
+                                        </div>
+                                            <button type="submit" class="btn btn-default">Submit</button>
+                                        </form:form>
+                                    </div>
                                 </div>
-                                <button type="submit" class="btn btn-default">Submit</button>
-                            </form:form>
+                                <div class="col-lg-2">
+                                    <div class="dropdown" style="margin-top: 8px; margin-left: 60px;">
+                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                            <li><a href="?lang=ru">ru</a></li>
+                                            <li><a href="?lang=en">eng</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <tiles:insertAttribute name="body"/>
                     </div>
@@ -49,14 +71,3 @@
 <script src="${context}/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
-
-<form:form method="POST" commandName="searchCriteria" cssClass="navbar-form navbar-left" action="/internetMarket-1.0-SNAPSHOT/a">
-    <form:label path="searchString">PutSearchStringHere</form:label>
-    <form:password path="searchString"/>
-    </fieldset>
-    <footer>
-        <input type="submit" class="btn btn-default" value="Search" tabindex="4">
-    </footer>
-</form:form>
