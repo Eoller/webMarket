@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import spring.entities.Product;
 import spring.services.ShopServiceInterface;
 
@@ -23,7 +22,7 @@ public class ImageController {
 
     @RequestMapping(value = "/productImage/{id}", method = RequestMethod.GET)
     public void showImage(@PathVariable("id") Long id, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Product product = shopServiceInterface.searchProductById(id);
+        Product product = shopServiceInterface.getProductById(id);
         response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
         response.getOutputStream().write(product.getPhoto());
         response.getOutputStream().close();

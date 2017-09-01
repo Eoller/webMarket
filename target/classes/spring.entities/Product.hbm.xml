@@ -28,7 +28,7 @@
             <column name="category_id" not-null="true"/>
         </many-to-one>
         <many-to-one class="spring.entities.Producer" fetch="join" name="producerId" lazy="false">
-            <column name="producer_id" not-null="true"/>
+            <column name="producer_id" not-null="false"/>
         </many-to-one>
     </class>
 </hibernate-mapping>

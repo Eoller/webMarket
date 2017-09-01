@@ -2,6 +2,7 @@ package spring.dao;
 
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,4 +26,12 @@ public class CategoryDaoImpl implements CategoryDaoInterface {
                 .createCriteria(Category.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
         return categoryList;
     }
+
+    @Override
+    @Transactional
+    public Category getCategory(Long id) {
+        return (Category) sessionFactory.getCurrentSession().createCriteria(Category.class).add(Restrictions.eq("id", id));
+    }
+
+
 }

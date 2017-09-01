@@ -1,9 +1,11 @@
 package spring.controllers;
 
+import antlr.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -15,6 +17,8 @@ import spring.objects.User;
 import spring.services.ShopServiceInterface;
 
 import javax.servlet.http.HttpSession;
+import java.beans.PropertyEditor;
+import java.beans.PropertyEditorSupport;
 import java.util.List;
 
 /**
@@ -78,10 +82,42 @@ public class ShopController {
         return "create";
     }
 
-    @RequestMapping(value = "/added",method = RequestMethod.POST)
-    public String saveProduct(@ModelAttribute SearchCriteria searchCriteria,@ModelAttribute("product") Product product, ModelMap modelMap){
+    @RequestMapping(value = "/create" ,params="form",method = RequestMethod.POST)
+    public String createProductPost(@ModelAttribute SearchCriteria searchCriteria,@RequestParam(value = "categoryId") Long id,@ModelAttribute("product") Product product, ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryDaoInterface.getCategories());
+        Category toAdd = new Category();
+        toAdd.setId(id);
+        product.setCategoryId(toAdd);
         shopServiceInterface.addProduct(product);
         return "redirect:/";
     }
+
+    @RequestMapping(value = "/delete/{id}",method = RequestMethod.GET)
+    public String deleteProduct(@ModelAttribute SearchCriteria searchCriteria,@PathVariable("id") Long id, ModelMap modelMap){
+        modelMap.addAttribute("categoryList", categoryDaoInterface.getCategories());
+        shopServiceInterface.removeProduct(id);
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = "/showDetails/{id}",method = RequestMethod.GET)
+    public String showProductDetails(@ModelAttribute SearchCriteria searchCriteria,@PathVariable("id") Long id, ModelMap modelMap){
+        modelMap.addAttribute("categoryList", categoryDaoInterface.getCategories());
+        Product shown = shopServiceInterface.getProductById(id);
+        modelMap.addAttribute("product", shown);
+        return "showDetails";
+    }
+
+    @InitBinder
+    protected void initBinder(WebDataBinder binder){
+        binder.registerCustomEditor(Category.class, "categoryId", new PropertyEditorSupport(){
+            @Override
+            public void setAsText(String text){
+                //setValue((text.equals("")?null: categoryDaoInterface.getCategory(Long.parseLong(text))));
+                if (!org.springframework.util.StringUtils.isEmpty(text)) {
+                    setValue(categoryDaoInterface.getCategory(Long.parseLong(text)));
+                }
+            }
+        } );
+    }
+
 }

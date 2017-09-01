@@ -29,7 +29,7 @@ public class ShopService implements ShopServiceInterface{
     }
 
     @Override
-    public Product searchProductById(Long id) {
+    public Product getProductById(Long id) {
         return productDaoInterface.getProduct(id);
     }
 
@@ -41,5 +41,10 @@ public class ShopService implements ShopServiceInterface{
     @Override
     public void addProduct(Product product) {
         productDaoInterface.addProduct(product);
+    }
+
+    @Override
+    public void removeProduct(Long id) {
+        productDaoInterface.removeProduct(id);
     }
 }

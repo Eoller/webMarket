@@ -11,7 +11,8 @@ import java.util.List;
 public interface ShopServiceInterface {
     public List<Product> searchProductBySearchString(String searchString);
     public List<Product> searchProductByCategory(Category category);
-    public Product searchProductById(Long id);
+    public Product getProductById(Long id);
     public List<Product> getAllProducts();
     public void addProduct(Product product);
+    public void removeProduct(Long id);
 }

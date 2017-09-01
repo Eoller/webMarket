@@ -13,8 +13,10 @@
                     <div class="caption" style="position: absolute; bottom: 0; width: 170px; left: 45px;">
                         <h3>${abc.name}</h3>
                         <p>${abc.price}$</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Buy</a> <a href="#" class="btn btn-default"
-                                                                                        role="button">Details</a></p>
+                        <p>
+                            <a href="${pageContext.request.contextPath}/delete/${abc.id}" class="btn btn-primary" role="button">Buy</a>
+                            <a href="${pageContext.request.contextPath}/showDetails/${abc.id}" class="btn btn-default" role="button">Details</a>
+                        </p>
                     </div>
                 </div>
             </div>

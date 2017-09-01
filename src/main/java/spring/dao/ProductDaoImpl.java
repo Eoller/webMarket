@@ -87,6 +87,15 @@ public class ProductDaoImpl implements ProductDaoInterface {
         sessionFactory.getCurrentSession().save(product);
     }
 
+    @Override
+    @Transactional
+    public void removeProduct(Long id) {
+        Product product =(Product) sessionFactory.getCurrentSession().load(Product.class, id);
+        if(null != product){
+            sessionFactory.getCurrentSession().delete(product);
+        }
+    }
+
     private DetachedCriteria createProductCriteria(){
         DetachedCriteria productListCriteria = DetachedCriteria.forClass(Product.class, "p");
         createAliases(productListCriteria);

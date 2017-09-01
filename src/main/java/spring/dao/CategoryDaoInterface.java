@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface CategoryDaoInterface {
     public List<Category> getCategories();
+    public Category getCategory(Long id);
 }

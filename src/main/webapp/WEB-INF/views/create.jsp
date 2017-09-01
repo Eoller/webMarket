@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="container-fluid">
     <div class="row">
-        <form:form modelAttribute="product"  method="post" action="${pageContext.request.contextPath}/added">
+        <form:form modelAttribute="product" method="post">
             <div class="form-group">
                 <form:input path="name" class="form-control"
                             placeholder="Product name"/>
@@ -22,12 +22,13 @@
                             placeholder="Product unique number"/>
             </div>
 
-            <form:select path="categoryId">
-                <form:options items="${categoryList}" itemLabel="name" itemValue="id" />
-            </form:select>
 
+            <!-- <form:select path="categoryId">
+                <form:option value="0" label="Select"/>
+                <form:options items="${catList}" itemValue="id" itemLabel="name"/>
+            </form:select> -->
 
-            <button type="submit" class="btn btn-default">Create</button>
+            <button type="submit" class="btn btn-default">Next step</button>
 
 
         </form:form>
