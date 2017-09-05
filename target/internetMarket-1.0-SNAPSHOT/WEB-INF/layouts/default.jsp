@@ -33,9 +33,9 @@
                                         <form:form method="POST" commandName="searchCriteria"
                                                    class="navbar-form navbar-left" action="${context}/searchString">
                                             <div class="form-group">
-                                            <form:input path="searchString" class="form-control"
-                                                        placeholder="Search"/>
-                                        </div>
+                                                <form:input path="searchString" class="form-control"
+                                                            placeholder="Search"/>
+                                            </div>
                                             <button type="submit" class="btn btn-default">Submit</button>
                                         </form:form>
                                     </div>

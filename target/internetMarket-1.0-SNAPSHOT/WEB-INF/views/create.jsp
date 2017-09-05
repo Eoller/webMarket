@@ -23,12 +23,17 @@
             </div>
 
 
-            <!-- <form:select path="categoryId">
-                <form:option value="0" label="Select"/>
-                <form:options items="${catList}" itemValue="id" itemLabel="name"/>
-            </form:select> -->
+            <form:select path="categoryId">
+                <form:option value="0" label="Select category"/>
+                <form:options items="${categoryList}" itemValue="id" itemLabel="name"/>
+            </form:select>
 
-            <button type="submit" class="btn btn-default">Next step</button>
+            <form:select path="producerId">
+                <form:option value="0" label="Select producer"/>
+                <form:options items="${producersList}" itemValue="id" itemLabel="name"/>
+            </form:select>
+
+            <button type="submit" class="btn btn-default">Add</button>
 
 
         </form:form>

@@ -2,6 +2,7 @@ package spring.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import spring.dao.ProductDaoInterface;
 import spring.entities.Category;
 import spring.entities.Product;
@@ -11,7 +12,7 @@ import java.util.List;
 /**
  * Created by Eoller on 27-Aug-17.
  */
-@Component
+@Service
 public class ShopService implements ShopServiceInterface{
 
     @Autowired

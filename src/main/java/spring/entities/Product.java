@@ -1,5 +1,7 @@
 package spring.entities;
 
+import spring.dto.ProductDto;
+
 import java.util.Arrays;
 
 /**
@@ -14,6 +16,18 @@ public class Product implements java.io.Serializable{
     private String uniqueNumber;
     private Category categoryId;
     private Producer producerId;
+
+    public Product(){}
+
+    public Product(ProductDto productDto){
+        this.name = productDto.getName();
+        this.price = productDto.getPrice();
+        this.dscr = productDto.getDscr();
+        this.photo = productDto.getPhoto();
+        this.uniqueNumber = productDto.getUniqueNumber();
+        setCategoryId(new Category(productDto.getCategoryId()));
+        setProducerId(new Producer(productDto.getProducerId()));
+    }
 
     public Long getId() {
         return id;

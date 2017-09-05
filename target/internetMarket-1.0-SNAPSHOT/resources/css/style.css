@@ -14,9 +14,13 @@
 	font-size: 90%;
 }
 
+.detailButton{
+	width: 100%;
+}
+
 .navbar-inverse {
 	padding: 1%;
-	background-color: #c70707 !important;
+	background-color: #da0000 !important;
 }
 
 .nav-pills>li>a {
@@ -32,10 +36,19 @@
     background-color: #000000;
 }
 
-.list-group>li.active>a,.list-group>li.active>a:focus, .list-group>li.active>a:hover{
-	color: #fff;
+.list-group>a.active,.list-group>a.active:focus, .list-group>a.active:hover{
+	color: black !important;
 }
 
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover{
+	background-color: #efe8e8 !important;
+	border-color: #efe8e8 !important;
+}
+
+
+.list-group>a{
+	text-align: left;
+}
 
 .clear{
 	clear: both;
@@ -117,6 +130,18 @@ footer p{
 	-o-transform: scale(1.1);
 }
 
+.detailImg{
+	-webkit-transition: all 0.5s ease-out;
+	-moz-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+}
+
+.detailImg:active{
+	-webkit-transform: scale(1.8);
+	-moz-transform: scale(1.8) ;
+	-o-transform: scale(1.8);
+}
+
 .listCategory {
 	padding-top: 73px;
 }
@@ -126,4 +151,17 @@ footer p{
 	padding-left: 10px;
 	padding-right: 10px;
 	text-align: center;
+}
+
+.detailImgTxt {
+	text-align: center;
+	font-size: 12px;
+}
+
+.detailImg {
+	width: 100%;
+}
+
+.detailImg img{
+	width: 100%;
 }

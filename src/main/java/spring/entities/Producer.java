@@ -7,6 +7,11 @@ public class Producer {
     private Long id;
     private String name;
 
+    public Producer(){}
+
+    public Producer(Long id){
+        this.id = id;
+    }
     public Long getId() {
         return id;
     }
