@@ -11,27 +11,20 @@
         </div>
         <div class="col-lg-5">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Name</h3>
-                </div>
-                <div class="panel-body">${product.name}</div>
+                <div class="panel-body"><strong>Name: </strong>${product.name}</div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Price</h3>
-                </div>
-                <div class="panel-body">${product.price}$</div>
+                <div class="panel-body"><strong>Price: </strong>${product.price}$</div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Unique number</h3>
-                </div>
-                <div class="panel-body">${product.uniqueNumber}</div>
+                <div class="panel-body"><strong>Unique number: </strong>${product.uniqueNumber}</div>
             </div>
         </div>
         <div class="col-lg-2">
             <form action="#">
-                <button type="submit" class="btn btn-default btn-md detailButton" style="background-color: #fdf1f1">Buy</button>
+                <button type="submit" class="btn btn-default btn-md detailButton" style="background-color: #fdf1f1">
+                    Buy
+                </button>
             </form>
 
             <form action="#">
@@ -43,7 +36,9 @@
             </form>
 
             <form action="${pageContext.request.contextPath}/delete/${product.id}">
-                <button type="submit" class="btn btn-default btn-md detailButton" style="background-color: #ff0000; border-color: black;">Delete</button>
+                <button type="submit" class="btn btn-default btn-md detailButton"
+                        style="background-color: #ff0000; border-color: black;">Delete
+                </button>
             </form>
         </div>
     </div>

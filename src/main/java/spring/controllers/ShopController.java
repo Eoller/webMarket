@@ -6,6 +6,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
+import org.springframework.web.multipart.MultipartFile;
 import spring.dto.ProductDto;
 import spring.entities.Category;
 import spring.entities.Product;
@@ -15,11 +16,14 @@ import spring.services.ProducerServiceInterface;
 import spring.services.ShopServiceInterface;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 /**
  * Created by Eoller on 28-Aug-17.
  */
+
+
 @Controller
 public class ShopController {
     @Autowired
@@ -29,6 +33,12 @@ public class ShopController {
     @Autowired
     private ProducerServiceInterface producerServiceInterface;
 
+    /**
+     *
+     * @param session
+     * @param modelMap
+     * @return
+     */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String main(HttpSession session, ModelMap modelMap) {
         WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(session.getServletContext());
@@ -80,9 +90,9 @@ public class ShopController {
     }
 
     @RequestMapping(value = "/create" ,params="form",method = RequestMethod.POST)
-    public String createProductPost(@ModelAttribute SearchCriteria searchCriteria,@ModelAttribute("product") ProductDto productDto, ModelMap modelMap){
+    public String createProductPost(@ModelAttribute SearchCriteria searchCriteria, @ModelAttribute("product") ProductDto productDto, @RequestParam("file") MultipartFile file, ModelMap modelMap) throws IOException {
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
-
+        productDto.setPhoto(file.getBytes());
         shopServiceInterface.addProduct(new Product(productDto));
         return "redirect:/";
     }
