@@ -30,4 +30,9 @@ public class CategoryService implements CategoryServiceInterface {
     public Category getCategoryById(Long id) {
         return categoryDaoInterface.getCategory(id);
     }
+
+    @Override
+    public void deleteCategory(Long id) {
+        categoryDaoInterface.deleteCategory(id);
+    }
 }

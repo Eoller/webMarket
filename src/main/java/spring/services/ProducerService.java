@@ -25,4 +25,9 @@ public class ProducerService implements ProducerServiceInterface {
     public void addProducer(Producer producer) {
         producerDaoInterface.addProducer(producer);
     }
+
+    @Override
+    public void deleteProducer(Long id) {
+        producerDaoInterface.deleteProducer(id);
+    }
 }

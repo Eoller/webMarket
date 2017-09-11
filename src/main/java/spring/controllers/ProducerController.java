@@ -41,6 +41,12 @@ public class ProducerController {
         return "redirect:/admin";
     }
 
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public String deleteProducer(@ModelAttribute SearchCriteria searchCriteria, ModelMap modelMap){
+
+        return "redirect:/admin";
+    }
+
     @ModelAttribute
     public SearchCriteria searchCriteria(){
         return new SearchCriteria();

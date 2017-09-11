@@ -39,5 +39,10 @@ public class CategoryDaoImpl implements CategoryDaoInterface {
         sessionFactory.getCurrentSession().save(category);
     }
 
-
+    @Override
+    @Transactional
+    public void deleteCategory(Long id) {
+        Category category = (Category) sessionFactory.getCurrentSession().load(Category.class, id);
+        sessionFactory.getCurrentSession().delete(category);
+    }
 }

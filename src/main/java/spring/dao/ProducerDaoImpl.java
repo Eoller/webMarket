@@ -28,4 +28,11 @@ public class ProducerDaoImpl implements ProducerDaoInterface {
     public void addProducer(Producer producer) {
         sessionFactory.getCurrentSession().save(producer);
     }
+
+    @Override
+    @Transactional
+    public void deleteProducer(Long id) {
+        Producer producer = (Producer) sessionFactory.getCurrentSession().load(Producer.class, id);
+        sessionFactory.getCurrentSession().delete(producer);
+    }
 }
