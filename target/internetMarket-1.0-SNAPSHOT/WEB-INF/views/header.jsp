@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="row">
-    <nav role="navigation" class="navbar navbar-inverse">
+    <nav role="navigation" class="navbar navbar-inverse mynavbar-inverse navbar-static-top">
         <div class="container">
             <div class="navbar-header header">
                 <div class="container">
@@ -39,9 +39,6 @@
                             <c:if test="${active == 'contact'}">class="active"</c:if> ><a href="#">Contact</a></li>
                     <li
                             <c:if test="${active == 'forum'}">class="active"</c:if> ><a href="#">Forum</a></li>
-                    <li
-                            <c:if test="${active == 'sales'}">class="active"</c:if> ><a
-                            href="${pageContext.request.contextPath}/create?form">Add</a></li>
                 </ul>
             </div>
         </div>

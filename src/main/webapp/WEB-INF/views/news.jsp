@@ -11,7 +11,7 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-lg-10">
-                                            <h3>${new.topic} </h3>
+                                            <h4>${new.topic} </h4>
                                         </div>
                                         <div class="col-lg-2">
                                             <form action="${pageContext.request.contextPath}/news/read/${new.id}">

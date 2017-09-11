@@ -31,5 +31,10 @@ public class NewsService implements NewsServiceInterface {
         return newsDaoInterface.getNewsById(id);
     }
 
+    @Override
+    public void add(News news) {
+        newsDaoInterface.addNews(news);
+    }
+
 
 }

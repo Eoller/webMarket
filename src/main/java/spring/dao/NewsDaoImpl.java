@@ -34,7 +34,7 @@ public class NewsDaoImpl implements NewsDaoInterface {
     @Override
     @Transactional
     public void addNews(News news) {
-
+        sessionFactory.getCurrentSession().save(news);
     }
 
     @Override

@@ -18,10 +18,15 @@
 	width: 100%;
 }
 
-.navbar-inverse {
+.mynavbar-inverse {
 	border: 0;
 	padding: 1%;
 	background-color: #da0000 !important;
+}
+
+.listband{
+	margin-left: 15px;
+	margin-right: 15px;
 }
 
 .nav-pills>li>a {

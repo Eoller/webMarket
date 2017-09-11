@@ -41,7 +41,7 @@
                         </form:select>
                     </div>
                     <div class="col-lg-3">
-                        Photo:<input type="file" name="file">
+                        <Photo></Photo>:<input type="file" name="file">
                     </div>
 
                 </div>

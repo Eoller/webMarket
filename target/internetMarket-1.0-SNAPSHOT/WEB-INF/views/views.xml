@@ -32,6 +32,9 @@
         <put-attribute name="body" value="/WEB-INF/views/read.jsp"/>
     </definition>
 
+    <definition extends="default" name="addNews">
+        <put-attribute name="body" value="/WEB-INF/views/addNews.jsp"/>
+    </definition>
 
 
 </tiles-definitions>

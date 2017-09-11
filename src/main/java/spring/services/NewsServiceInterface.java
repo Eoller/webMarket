@@ -11,4 +11,5 @@ public interface NewsServiceInterface {
     public List<News> getAllNews();
     public void deleteNews(Long id);
     public News getNewsById(Long id);
+    public void add(News news);
 }

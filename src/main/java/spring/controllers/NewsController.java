@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import spring.dao.CategoryDaoInterface;
+import spring.entities.News;
 import spring.objects.SearchCriteria;
 import spring.services.CategoryServiceInterface;
 import spring.services.NewsServiceInterface;
@@ -30,6 +31,7 @@ public class NewsController {
     public String showNews(@ModelAttribute("searchCriteria") SearchCriteria searchCriteria, ModelMap modelMap ){
         modelMap.addAttribute("categoryList", categoryService.getCategories());
         modelMap.addAttribute("news", newsService.getAllNews());
+        modelMap.addAttribute("active","news");
         return "news";
     }
 
@@ -43,8 +45,26 @@ public class NewsController {
     public String readNews(@PathVariable("id") Long id, @ModelAttribute("searchCriteria") SearchCriteria searchCriteria, ModelMap modelMap){
         modelMap.addAttribute("news", newsService.getNewsById(id));
         modelMap.addAttribute("categoryList", categoryService.getCategories());
+        modelMap.addAttribute("active","news");
         return "read";
     }
+
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String addNews(@ModelAttribute("searchCriteria") SearchCriteria searchCriteria, ModelMap modelMap){
+        modelMap.addAttribute("categoryList", categoryService.getCategories());
+        modelMap.addAttribute("news", new News());
+        modelMap.addAttribute("active","news");
+        return "addNews";
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String addNewsPost(@ModelAttribute("news") News news,@ModelAttribute("searchCriteria") SearchCriteria searchCriteria, ModelMap modelMap){
+        modelMap.addAttribute("categoryList", categoryService.getCategories());
+        newsService.add(news);
+        return "redirect:/news/getAll";
+    }
+
+
 
 
     @ModelAttribute
