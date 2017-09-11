@@ -47,14 +47,14 @@
 
 	<interceptors>
 		<interceptor>
-			<mapping path="/*" />
+			<mapping path="/**" />
 			<beans:ref bean="localeChangeInterceptor" />
 		</interceptor>
 	</interceptors>
 
 
 	<beans:bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
-		<beans:property name="defaultLocale" value="ru"/>
+		<beans:property name="defaultLocale" value="en"/>
 	</beans:bean>
 
 	<beans:bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">

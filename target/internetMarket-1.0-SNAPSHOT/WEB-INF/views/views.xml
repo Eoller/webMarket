@@ -44,5 +44,9 @@
         <put-attribute name="body" value="/WEB-INF/views/admin/producerAdding.jsp"/>
     </definition>
 
+    <definition extends="default" name="contactForm">
+        <put-attribute name="body" value="/WEB-INF/views/contactForm.jsp"/>
+    </definition>
+
 
 </tiles-definitions>

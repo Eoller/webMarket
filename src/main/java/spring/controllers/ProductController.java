@@ -36,8 +36,8 @@ public class ProductController {
     @RequestMapping(value = "/create",params ="form",method = RequestMethod.GET)
     public String createProduct(@ModelAttribute SearchCriteria searchCriteria, ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
+        modelMap.addAttribute("producerList", producerServiceInterface.getProducers());
         modelMap.addAttribute("product", new ProductDto());
-        modelMap.addAttribute("producersList", producerServiceInterface.getProducers());
         return "admin/create";
     }
 

@@ -12,6 +12,7 @@ import spring.entities.News;
 import spring.objects.SearchCriteria;
 import spring.services.CategoryServiceInterface;
 import spring.services.NewsServiceInterface;
+import spring.services.ProducerServiceInterface;
 
 /**
  * Created by Eoller on 11-Sep-17.
@@ -25,6 +26,9 @@ public class NewsController {
 
     @Autowired
     private CategoryServiceInterface categoryService;
+
+    @Autowired
+    private ProducerServiceInterface producerService;
 
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
@@ -52,8 +56,8 @@ public class NewsController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addNews(@ModelAttribute("searchCriteria") SearchCriteria searchCriteria, ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryService.getCategories());
+        modelMap.addAttribute("producerList", producerService.getProducers());
         modelMap.addAttribute("news", new News());
-        modelMap.addAttribute("active","news");
         return "news/addNews";
     }
 

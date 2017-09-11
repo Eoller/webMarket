@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div class="container-fluid">
     <div class="row">
         <nav class="navbar navbar-default listband">
@@ -34,8 +35,8 @@
                         <h3>${abc.name}</h3>
                         <p>${abc.price}$</p>
                         <p>
-                            <a href="#" class="btn btn-primary" role="button">Buy</a>
-                            <a href="${pageContext.request.contextPath}/showDetails/${abc.id}" class="btn btn-default" role="button">Details</a>
+                            <a href="#" class="btn btn-primary" role="button"><spring:message code="Buy"/></a>
+                            <a href="${pageContext.request.contextPath}/showDetails/${abc.id}" class="btn btn-default" role="button"><spring:message code="Details"/> </a>
                         </p>
                     </div>
                 </div>

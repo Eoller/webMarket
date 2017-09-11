@@ -24,7 +24,7 @@ public class AdminController {
     @Autowired
     private CategoryServiceInterface categoryService;
     @Autowired
-    private ProducerServiceInterface producerService;
+    private ProducerServiceInterface producerServiceInterface;
 
     /**
      * Shows admin menu
@@ -32,7 +32,8 @@ public class AdminController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public String showMenu(@ModelAttribute SearchCriteria searchCriteria, ModelMap modelMap){
-        modelMap.addAttribute("categoryList", categoryService.getCategories() );
+        modelMap.addAttribute("categoryList", categoryService.getCategories());
+        modelMap.addAttribute("producerList", producerServiceInterface.getProducers());
         return "admin/menu";
     }
 

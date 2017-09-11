@@ -31,17 +31,17 @@
                 <ul class="nav nav-pills">
                     <li
                             <c:if test="${active == 'main'}">class="active"</c:if> ><a
-                            href="${pageContext.request.contextPath}/all">Main</a></li>
+                            href="${pageContext.request.contextPath}/all"><spring:message code="Main"/></a></li>
                     <li
                             <c:if test="${active == 'news'}">class="active"</c:if> ><a
                             href="${pageContext.request.contextPath}/news/getAll"><spring:message code="news"/></a></li>
                     <li
-                            <c:if test="${active == 'contact'}">class="active"</c:if> ><a href="#">Contact</a></li>
+                            <c:if test="${active == 'contact'}">class="active"</c:if> ><a href="#"><spring:message code="Contact_us"/></a></li>
                     <li
-                            <c:if test="${active == 'forum'}">class="active"</c:if> ><a href="#">Forum</a></li>
+                            <c:if test="${active == 'forum'}">class="active"</c:if> ><a href="#"><spring:message code="Forum"/></a></li>
                     <li
                             <c:if test="${active == 'admin'}">class="active"</c:if> >
-                        <a href="${pageContext.request.contextPath}/admin">Admin</a></li>
+                        <a href="${pageContext.request.contextPath}/admin"><spring:message code="Admin"/></a></li>
                 </ul>
             </div>
         </div>
