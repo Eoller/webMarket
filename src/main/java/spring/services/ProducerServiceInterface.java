@@ -1,6 +1,7 @@
 package spring.services;
 
 import spring.entities.Producer;
+import spring.entities.Product;
 
 import java.util.List;
 
@@ -9,4 +10,5 @@ import java.util.List;
  */
 public interface ProducerServiceInterface {
     public List<Producer> getProducers();
+    public void addProducer(Producer producer);
 }

@@ -35,13 +35,5 @@
                 </c:forEach>
             </div>
         </div>
-        <div class="col-lg-1">
-            <form action="${pageContext.request.contextPath}/news/add">
-                <button type="submit" class="btn btn-default btn-md">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                    Add
-                </button>
-            </form>
-        </div>
     </div>
 </div>

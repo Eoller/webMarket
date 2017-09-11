@@ -39,6 +39,9 @@
                             <c:if test="${active == 'contact'}">class="active"</c:if> ><a href="#">Contact</a></li>
                     <li
                             <c:if test="${active == 'forum'}">class="active"</c:if> ><a href="#">Forum</a></li>
+                    <li
+                            <c:if test="${active == 'admin'}">class="active"</c:if> >
+                        <a href="${pageContext.request.contextPath}/admin">Admin</a></li>
                 </ul>
             </div>
         </div>

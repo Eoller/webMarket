@@ -5,7 +5,6 @@
         <nav class="navbar navbar-default listband">
             <div class="container">
                 <ul class="nav navbar-nav">
-                    <li><a href="${pageContext.request.contextPath}/create?form">Add Product</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-sort-by-alphabet"></span></a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-sort-by-alphabet-alt"></span></a></li>
 

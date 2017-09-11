@@ -32,7 +32,7 @@ public class NewsController {
         modelMap.addAttribute("categoryList", categoryService.getCategories());
         modelMap.addAttribute("news", newsService.getAllNews());
         modelMap.addAttribute("active","news");
-        return "news";
+        return "news/news";
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
@@ -46,7 +46,7 @@ public class NewsController {
         modelMap.addAttribute("news", newsService.getNewsById(id));
         modelMap.addAttribute("categoryList", categoryService.getCategories());
         modelMap.addAttribute("active","news");
-        return "read";
+        return "news/read";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
@@ -54,7 +54,7 @@ public class NewsController {
         modelMap.addAttribute("categoryList", categoryService.getCategories());
         modelMap.addAttribute("news", new News());
         modelMap.addAttribute("active","news");
-        return "addNews";
+        return "news/addNews";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -63,8 +63,6 @@ public class NewsController {
         newsService.add(news);
         return "redirect:/news/getAll";
     }
-
-
 
 
     @ModelAttribute

@@ -24,7 +24,7 @@ public class CategoryController {
     public String addCategory(@ModelAttribute SearchCriteria searchCriteria,ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryService.getCategories());
         modelMap.addAttribute("category", new Category());
-        return "categoryAdding";
+        return "admin/categoryAdding";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)

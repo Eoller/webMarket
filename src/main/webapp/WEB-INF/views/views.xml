@@ -5,35 +5,43 @@
 <tiles-definitions>
 
     <definition extends="default" name="list">
-        <put-attribute name="body" value="/WEB-INF/views/list.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/product/list.jsp"/>
     </definition>
 
-    <definition extends="default" name="news">
-        <put-attribute name="body" value="/WEB-INF/views/news.jsp"/>
+    <definition extends="default" name="news/news">
+        <put-attribute name="body" value="/WEB-INF/views/news/news.jsp"/>
     </definition>
 
-    <definition extends="default" name="create">
-        <put-attribute name="body" value="/WEB-INF/views/create.jsp"/>
+    <definition extends="default" name="admin/create">
+        <put-attribute name="body" value="/WEB-INF/views/admin/create.jsp"/>
     </definition>
 
     <definition extends="default" name="showDetails">
-        <put-attribute name="body" value="/WEB-INF/views/details.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/product/details.jsp"/>
     </definition>
 
     <definition extends="default" name="edit">
-        <put-attribute name="body" value="/WEB-INF/views/edit.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/product/edit.jsp"/>
     </definition>
 
-    <definition extends="default" name="categoryAdding">
-        <put-attribute name="body" value="/WEB-INF/views/categoryAdding.jsp"/>
+    <definition extends="default" name="admin/categoryAdding">
+        <put-attribute name="body" value="/WEB-INF/views/admin/categoryAdding.jsp"/>
     </definition>
 
-    <definition extends="default" name="read">
-        <put-attribute name="body" value="/WEB-INF/views/read.jsp"/>
+    <definition extends="default" name="news/read">
+        <put-attribute name="body" value="/WEB-INF/views/news/read.jsp"/>
     </definition>
 
-    <definition extends="default" name="addNews">
-        <put-attribute name="body" value="/WEB-INF/views/addNews.jsp"/>
+    <definition extends="default" name="news/addNews">
+        <put-attribute name="body" value="/WEB-INF/views/news/addNews.jsp"/>
+    </definition>
+
+    <definition extends="default" name="admin/menu">
+        <put-attribute name="body" value="/WEB-INF/views/admin/menu.jsp"/>
+    </definition>
+
+    <definition extends="default" name="admin/producerAdding">
+        <put-attribute name="body" value="/WEB-INF/views/admin/producerAdding.jsp"/>
     </definition>
 
 

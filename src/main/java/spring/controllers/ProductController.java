@@ -38,7 +38,7 @@ public class ProductController {
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
         modelMap.addAttribute("product", new ProductDto());
         modelMap.addAttribute("producersList", producerServiceInterface.getProducers());
-        return "create";
+        return "admin/create";
     }
 
     @RequestMapping(value = "/create" ,params="form",method = RequestMethod.POST)

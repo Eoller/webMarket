@@ -35,10 +35,8 @@ public class ShopController {
     private ProducerServiceInterface producerServiceInterface;
 
     /**
+     *  redirect to main page with all products
      *
-     * @param session
-     * @param modelMap
-     * @return
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String main(HttpSession session, ModelMap modelMap) {
@@ -46,6 +44,10 @@ public class ShopController {
         return "redirect:/all";
     }
 
+    /**
+     *  Shows list of product by category
+     *
+     */
     @RequestMapping(value = "/getList/{id}/{name}", method = RequestMethod.GET)
     public String show(@PathVariable("id") Long id,@PathVariable("name") String name, ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
@@ -54,11 +56,10 @@ public class ShopController {
         return "list";
     }
 
-    @ModelAttribute
-    public SearchCriteria searchCriteria(){
-        return new SearchCriteria();
-    }
-
+    /**
+     *  Search by search string
+     *
+     */
     @RequestMapping(value = "/searchString", method = RequestMethod.POST)
     public String searchByString(@ModelAttribute SearchCriteria searchCriteria, ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
@@ -66,6 +67,10 @@ public class ShopController {
         return "list";
     }
 
+    /**
+     *  Shows list of all products
+     *
+     */
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public String showAll(@ModelAttribute SearchCriteria searchCriteria, ModelMap modelMap){
         List<Category> categories = categoryServiceInterface.getCategories();
@@ -73,5 +78,11 @@ public class ShopController {
         modelMap.addAttribute("productList", shopServiceInterface.getAllProducts());
         modelMap.addAttribute("active","main");
         return "list";
+    }
+
+
+    @ModelAttribute
+    public SearchCriteria searchCriteria(){
+        return new SearchCriteria();
     }
 }

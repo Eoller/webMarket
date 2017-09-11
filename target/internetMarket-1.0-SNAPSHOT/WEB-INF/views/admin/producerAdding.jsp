@@ -7,10 +7,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<form:form method="POST" class="navbar-form navbar-left" modelAttribute="category">
+<form:form method="POST" class="navbar-form navbar-left" modelAttribute="producer">
     <div class="form-group">
         <form:input path="name" class="form-control"
-                    placeholder="Category name"/>
+                    placeholder="Producer name"/>
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-default">Add Producer</button>
 </form:form>

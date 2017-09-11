@@ -20,4 +20,9 @@ public class ProducerService implements ProducerServiceInterface {
     public List<Producer> getProducers() {
         return producerDaoInterface.getProducers();
     }
+
+    @Override
+    public void addProducer(Producer producer) {
+        producerDaoInterface.addProducer(producer);
+    }
 }

@@ -22,4 +22,10 @@ public class ProducerDaoImpl implements ProducerDaoInterface {
     public List<Producer> getProducers() {
         return (List<Producer>) sessionFactory.getCurrentSession().createCriteria(Producer.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
+
+    @Override
+    @Transactional
+    public void addProducer(Producer producer) {
+        sessionFactory.getCurrentSession().save(producer);
+    }
 }
