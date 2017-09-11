@@ -20,4 +20,18 @@
         <put-attribute name="body" value="/WEB-INF/views/details.jsp"/>
     </definition>
 
+    <definition extends="default" name="edit">
+        <put-attribute name="body" value="/WEB-INF/views/edit.jsp"/>
+    </definition>
+
+    <definition extends="default" name="categoryAdding">
+        <put-attribute name="body" value="/WEB-INF/views/categoryAdding.jsp"/>
+    </definition>
+
+    <definition extends="default" name="read">
+        <put-attribute name="body" value="/WEB-INF/views/read.jsp"/>
+    </definition>
+
+
+
 </tiles-definitions>

@@ -19,6 +19,7 @@
 }
 
 .navbar-inverse {
+	border: 0;
 	padding: 1%;
 	background-color: #da0000 !important;
 }

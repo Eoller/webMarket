@@ -48,4 +48,9 @@ public class ShopService implements ShopServiceInterface{
     public void removeProduct(Long id) {
         productDaoInterface.removeProduct(id);
     }
+
+    @Override
+    public void updateProduct(Product product) {
+        productDaoInterface.updateProduct(product);
+    }
 }

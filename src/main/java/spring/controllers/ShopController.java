@@ -58,13 +58,6 @@ public class ShopController {
         return new SearchCriteria();
     }
 
-    @RequestMapping(value = "/news", method = RequestMethod.GET)
-    public String showNews(ModelMap modelMap ){
-        modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
-        modelMap.addAttribute("active", "news");
-        return "news";
-    }
-
     @RequestMapping(value = "/searchString", method = RequestMethod.POST)
     public String searchByString(@ModelAttribute SearchCriteria searchCriteria, ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
@@ -79,36 +72,5 @@ public class ShopController {
         modelMap.addAttribute("productList", shopServiceInterface.getAllProducts());
         modelMap.addAttribute("active","main");
         return "list";
-    }
-
-    @RequestMapping(value = "/create",params ="form",method = RequestMethod.GET)
-    public String createProduct(@ModelAttribute SearchCriteria searchCriteria, ModelMap modelMap){
-        modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
-        modelMap.addAttribute("product", new ProductDto());
-        modelMap.addAttribute("producersList", producerServiceInterface.getProducers());
-        return "create";
-    }
-
-    @RequestMapping(value = "/create" ,params="form",method = RequestMethod.POST)
-    public String createProductPost(@ModelAttribute SearchCriteria searchCriteria, @ModelAttribute("product") ProductDto productDto, @RequestParam("file") MultipartFile file, ModelMap modelMap) throws IOException {
-        modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
-        productDto.setPhoto(file.getBytes());
-        shopServiceInterface.addProduct(new Product(productDto));
-        return "redirect:/";
-    }
-
-    @RequestMapping(value = "/delete/{id}",method = RequestMethod.GET)
-    public String deleteProduct(@ModelAttribute SearchCriteria searchCriteria,@PathVariable("id") Long id, ModelMap modelMap){
-        modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
-        shopServiceInterface.removeProduct(id);
-        return "redirect:/";
-    }
-
-    @RequestMapping(value = "/showDetails/{id}",method = RequestMethod.GET)
-    public String showProductDetails(@ModelAttribute SearchCriteria searchCriteria,@PathVariable("id") Long id, ModelMap modelMap){
-        modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
-        Product shown = shopServiceInterface.getProductById(id);
-        modelMap.addAttribute("product", shown);
-        return "showDetails";
     }
 }

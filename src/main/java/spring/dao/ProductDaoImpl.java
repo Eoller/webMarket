@@ -76,9 +76,7 @@ public class ProductDaoImpl implements ProductDaoInterface {
     @Override
     @Transactional
     public Product getProduct(Long id) {
-        List<Product> products = createProductList(createProductCriteria().add(Restrictions.eq("p.id", id)));
-        Product product = products.get(0);
-        return product;
+        return (Product) sessionFactory.getCurrentSession().get(Product.class, id);
     }
 
     @Override
@@ -94,6 +92,12 @@ public class ProductDaoImpl implements ProductDaoInterface {
         if(null != product){
             sessionFactory.getCurrentSession().delete(product);
         }
+    }
+
+    @Override
+    @Transactional
+    public void updateProduct(Product product) {
+        sessionFactory.getCurrentSession().saveOrUpdate(product);
     }
 
     private DetachedCriteria createProductCriteria(){

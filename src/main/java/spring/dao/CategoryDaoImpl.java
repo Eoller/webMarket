@@ -30,7 +30,13 @@ public class CategoryDaoImpl implements CategoryDaoInterface {
     @Override
     @Transactional
     public Category getCategory(Long id) {
-        return (Category) sessionFactory.getCurrentSession().createCriteria(Category.class).add(Restrictions.eq("id", id));
+        return (Category) sessionFactory.getCurrentSession().get(Category.class, id);
+    }
+
+    @Override
+    @Transactional
+    public void addCategory(Category category) {
+        sessionFactory.getCurrentSession().save(category);
     }
 
 

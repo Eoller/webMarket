@@ -8,8 +8,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-10">
-                            <h1><a href="#"><spring:message code="shopName"/></a></h1>
-                            <p style="text-align: left">Shop number ONE in EU</p>
+                            <h1><a href="${pageContext.request.contextPath}/"><spring:message code="shopName"/>&reg</a></h1>
+                            <p style="text-align: left"><em>Shop number ONE in EU</em></p>
                         </div>
                         <div class="col-lg-2">
                             <div id="f">
@@ -34,7 +34,7 @@
                             href="${pageContext.request.contextPath}/all">Main</a></li>
                     <li
                             <c:if test="${active == 'news'}">class="active"</c:if> ><a
-                            href="${pageContext.request.contextPath}/news"><spring:message code="news"/></a></li>
+                            href="${pageContext.request.contextPath}/news/getAll"><spring:message code="news"/></a></li>
                     <li
                             <c:if test="${active == 'contact'}">class="active"</c:if> ><a href="#">Contact</a></li>
                     <li

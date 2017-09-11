@@ -31,9 +31,7 @@
                 <button type="submit" class="btn btn-default btn-md detailButton">Add to Card</button>
             </form>
             <hr>
-            <form action="#">
-                <button type="submit" class="btn btn-default btn-md detailButton">Edit</button>
-            </form>
+            <a href="${pageContext.request.contextPath}/showDetails/${product.id}?form" class="btn btn-default" role="button">Edit</a>
 
             <form action="${pageContext.request.contextPath}/delete/${product.id}">
                 <button type="submit" class="btn btn-default btn-md detailButton"

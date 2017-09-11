@@ -19,4 +19,5 @@ public interface ProductDaoInterface {
     public Product getProduct(Long id);
     public void addProduct(Product product);
     public void removeProduct(Long id);
+    public void updateProduct(Product product);
 }

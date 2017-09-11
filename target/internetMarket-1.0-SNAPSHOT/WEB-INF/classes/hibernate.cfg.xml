@@ -10,11 +10,10 @@
     <property name="connection.url">jdbc:mysql://localhost:3306/springshop</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.current_session_context_class"> org.springframework.orm.hibernate4.SpringSessionContext</property>
-    <property name="connection.username">root</property>
-    <property name="connection.password">root</property>
     <mapping resource="spring.entities/Category.hbm.xml"/>
     <mapping resource="spring.entities/Producer.hbm.xml"/>
     <mapping resource="spring.entities/Product.hbm.xml"/>
+    <mapping resource="spring.entities/News.hbm.xml"/>
     <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 

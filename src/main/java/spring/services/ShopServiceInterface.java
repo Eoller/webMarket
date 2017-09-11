@@ -15,4 +15,5 @@ public interface ShopServiceInterface {
     public List<Product> getAllProducts();
     public void addProduct(Product product);
     public void removeProduct(Long id);
+    public void updateProduct(Product product);
 }

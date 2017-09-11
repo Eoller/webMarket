@@ -12,11 +12,22 @@ import java.util.List;
  */
 @Service
 public class CategoryService implements CategoryServiceInterface {
+
     @Autowired
     private CategoryDaoInterface categoryDaoInterface;
 
     @Override
     public List<Category> getCategories() {
         return categoryDaoInterface.getCategories();
+    }
+
+    @Override
+    public void addCategory(Category category) {
+        categoryDaoInterface.addCategory(category);
+    }
+
+    @Override
+    public Category getCategoryById(Long id) {
+        return categoryDaoInterface.getCategory(id);
     }
 }
