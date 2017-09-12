@@ -143,9 +143,9 @@ footer p{
 }
 
 .detailImg:active{
-	-webkit-transform: scale(1.8);
-	-moz-transform: scale(1.8) ;
-	-o-transform: scale(1.8);
+	-webkit-transform: scale(1.5);
+	-moz-transform: scale(1.5) ;
+	-o-transform: scale(1.5);
 }
 
 .listCategory {

@@ -64,10 +64,10 @@ public class ShopController {
      *
      */
     @RequestMapping(value = "/searchString", method = RequestMethod.POST)
-    public String searchByString(ModelMap modelMap, HttpServletRequest request){
+    public String searchByString(@ModelAttribute SearchCriteria searchCriteria, ModelMap modelMap, HttpServletRequest request){
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
-        String search = request.getParameter("searchString");
-        modelMap.addAttribute("productList", shopServiceInterface.searchProductBySearchString(search));
+        String searchString = request.getParameter("searchString");
+        modelMap.addAttribute("productList", shopServiceInterface.searchProductBySearchString(searchString));
         return "list";
     }
 

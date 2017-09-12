@@ -14,7 +14,7 @@
     <!-- Content Row -->
     <div class="row">
         <!-- Contact Details Column -->
-        <div class="col-md-4">
+        <div class="col-lg-12" style="text-align: center">
             <c:if test="${pageContext.request.getParameter('resultSending') == 'true'}">
                 <h3 style="color:green">Email already send!</h3>
             </c:if>
@@ -44,13 +44,10 @@
             </ul>
         </div>
     </div>
-    <!-- /.row -->
-    <!-- Contact Form -->
-    <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-lg-12">
             <hr>
-            <h3>Send us a Message</h3>
+            <h3>Send us an Email</h3>
             <form:form name="sentMessage" id="contactForm" action="${pageContext.request.contextPath}/email/sendMail"
                        method="post">
                 <div class="control-group form-group">

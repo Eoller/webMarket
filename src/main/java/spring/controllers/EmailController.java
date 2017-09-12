@@ -18,18 +18,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * Controller to send email
  * Created by Eoller on 12-Sep-17.
  */
 @Controller
 public class EmailController {
-
-
-
+    /**
+     * been from root-context
+     */
     @Autowired
     private JavaMailSender mailSender;
 
-
-
+    /**
+     * Takes params from form no jsp page, then creates SimpleMailMessage , adds params to Mail and sends.
+     *
+     */
     @RequestMapping(value = "/email/sendMail", method = RequestMethod.POST)
     public String emailSend(HttpServletRequest request) {
         String userName = request.getParameter("name");
@@ -53,7 +56,7 @@ public class EmailController {
 
     /*@Autowired
     EmailService emailService;*/
-    
+
 
         /*@RequestMapping(value = "/email/send", method = RequestMethod.POST)
     public ModelAndView email(@ModelAttribute("emailModel") EmailModel emailModel) {

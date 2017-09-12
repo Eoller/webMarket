@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import spring.dto.ProductDto;
+import spring.entities.Category;
 import spring.entities.Product;
 import spring.objects.SearchCriteria;
 import spring.services.CategoryServiceInterface;
@@ -62,8 +63,7 @@ public class ProductController {
     @RequestMapping(value = "/showDetails/{id}", params="form", method = RequestMethod.GET)
     public String editForm(@PathVariable("id") Long id, ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
-        Product shown = shopServiceInterface.getProductById(id);
-        modelMap.addAttribute("product", shown);
+        modelMap.addAttribute("product",shopServiceInterface.getProductById(id));
         return "edit";
     }
 
@@ -71,10 +71,15 @@ public class ProductController {
     public String editFormPost(@ModelAttribute("product") Product product,@PathVariable("id") Long id, ModelMap modelMap, HttpServletRequest httpServletRequest){
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
         //shopServiceInterface.updateProduct(product);
-        modelMap.addAttribute("product", product);
-        shopServiceInterface.addProduct(product);
-
-        return "showDetails";
+        Product shown = shopServiceInterface.getProductById(id);
+        shown.setName(product.getName());
+        shown.setPrice(product.getPrice());
+        shown.setUniqueNumber(product.getUniqueNumber());
+        shown.setDscr(product.getDscr());
+        product.setCategoryId(new Category(1l));
+        shown.setCategoryId(product.getCategoryId());
+        shopServiceInterface.updateProduct(shown);
+        return "redirect:/showDetails/" + id;
     }
 
 }
