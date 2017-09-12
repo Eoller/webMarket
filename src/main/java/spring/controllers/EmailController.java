@@ -1,6 +1,8 @@
 package spring.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 import spring.objects.EmailModel;
 import spring.services.EmailService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,10 +24,38 @@ import java.util.Map;
 public class EmailController {
 
 
-    @Autowired
-    EmailService emailService;
 
-    @RequestMapping(value = "/email/send", method = RequestMethod.POST)
+    @Autowired
+    private JavaMailSender mailSender;
+
+
+
+    @RequestMapping(value = "/email/sendMail", method = RequestMethod.POST)
+    public String emailSend(HttpServletRequest request) {
+        String userName = request.getParameter("name");
+        String userAdress = request.getParameter("email");
+        String userPhone = request.getParameter("phone");
+        String userMessage = request.getParameter("message");
+        String subject = request.getParameter("subject");
+        SimpleMailMessage email = new SimpleMailMessage();
+        email.setTo("Egorpyp@gmail.com");
+        StringBuffer sb = new StringBuffer();
+        sb.append("User mail: " + userAdress).append("\n" +"User phone: " + userPhone).append("\n" +"User name: " + userName).append("\n" +"User message: " + userMessage);
+        email.setSubject(subject);
+        email.setText(sb.toString());
+        mailSender.send(email);
+        return "redirect:/all";
+    }
+}
+
+
+
+
+    /*@Autowired
+    EmailService emailService;*/
+    
+
+        /*@RequestMapping(value = "/email/send", method = RequestMethod.POST)
     public ModelAndView email(@ModelAttribute("emailModel") EmailModel emailModel) {
         Map<String, Object> model = new HashMap<>();
         model.put(EmailService.FROM, "Egorpyp@gmail.com");
@@ -37,5 +69,4 @@ public class EmailController {
         boolean result = emailService.sendEmail("registered.vm", model);
         //use redirect or you will send email after every refresh page.
         return new ModelAndView("redirect:/email/send", "resultSending", result);
-    }
-}
+    }*/

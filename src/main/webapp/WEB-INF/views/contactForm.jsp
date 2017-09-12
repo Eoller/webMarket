@@ -6,9 +6,8 @@
 
     <!-- Page Heading/Breadcrumbs -->
     <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">Contacts</h1>
-        </div>
+        <h2>Find or contact us!</h2>
+        <hr>
     </div>
     <!-- /.row -->
 
@@ -46,14 +45,14 @@
         </div>
     </div>
     <!-- /.row -->
-    <c:url value="/email/send" var="send"/>
     <!-- Contact Form -->
     <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
     <div class="row">
         <div class="col-md-8">
+            <hr>
             <h3>Send us a Message</h3>
-            <form:form name="sentMessage" id="contactForm" action="${send}"
-                       method="post" modelAttribute="emailModel" novalidate="true">
+            <form:form name="sentMessage" id="contactForm" action="${pageContext.request.contextPath}/email/sendMail"
+                       method="post">
                 <div class="control-group form-group">
                     <div class="controls">
                         <label>Full Name:</label>
@@ -65,7 +64,7 @@
                 <div class="control-group form-group">
                     <div class="controls">
                         <label>Phone Number:</label>
-                        <input type="tel" class="form-control" id="phone" name="phoneNumber"
+                        <input type="tel" class="form-control" id="phone" name="phone"
                                required data-validation-required-message="Please enter your phone number.">
                     </div>
                 </div>
@@ -74,6 +73,14 @@
                         <label>Email Address:</label>
                         <input type="email" class="form-control" id="email" name="email"
                                required data-validation-required-message="Please enter your email address.">
+                    </div>
+                </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Subject:</label>
+                        <input type="text" class="form-control" id="subject" name="subject"
+                               required data-validation-required-message="Please enter subject.">
+                        <p class="help-block"></p>
                     </div>
                 </div>
                 <div class="control-group form-group">
