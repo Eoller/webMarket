@@ -1,6 +1,7 @@
 package spring.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -10,11 +11,13 @@ import org.springframework.web.multipart.MultipartFile;
 import spring.dto.ProductDto;
 import spring.entities.Category;
 import spring.entities.Product;
+import spring.objects.EmailModel;
 import spring.objects.SearchCriteria;
 import spring.services.CategoryServiceInterface;
 import spring.services.ProducerServiceInterface;
 import spring.services.ShopServiceInterface;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Collections;
@@ -61,9 +64,10 @@ public class ShopController {
      *
      */
     @RequestMapping(value = "/searchString", method = RequestMethod.POST)
-    public String searchByString(@ModelAttribute SearchCriteria searchCriteria, ModelMap modelMap){
+    public String searchByString(ModelMap modelMap, HttpServletRequest request){
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
-        modelMap.addAttribute("productList", shopServiceInterface.searchProductBySearchString(searchCriteria.getSearchString()));
+        String search = request.getParameter("searchString");
+        modelMap.addAttribute("productList", shopServiceInterface.searchProductBySearchString(search));
         return "list";
     }
 
@@ -72,7 +76,7 @@ public class ShopController {
      *
      */
     @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public String showAll(@ModelAttribute SearchCriteria searchCriteria, ModelMap modelMap){
+    public String showAll(ModelMap modelMap){
         List<Category> categories = categoryServiceInterface.getCategories();
         modelMap.addAttribute("categoryList", categories);
         modelMap.addAttribute("productList", shopServiceInterface.getAllProducts());
@@ -80,9 +84,12 @@ public class ShopController {
         return "list";
     }
 
-
-    @ModelAttribute
-    public SearchCriteria searchCriteria(){
-        return new SearchCriteria();
+    @RequestMapping(value = "/email/send", method = RequestMethod.GET)
+    public String showEmailForm(ModelMap modelMap){
+        modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
+        modelMap.addAttribute("emailModel",new EmailModel());
+        modelMap.addAttribute("active","contact");
+        return "emailForm";
     }
+
 }

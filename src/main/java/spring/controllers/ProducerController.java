@@ -30,7 +30,7 @@ public class ProducerController {
     private CategoryServiceInterface categoryService;
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String addProducer(@ModelAttribute SearchCriteria searchCriteria, ModelMap modelMap){
+    public String addProducer(ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryService.getCategories());
         modelMap.addAttribute("producerList", producerService.getProducers());
         modelMap.addAttribute("producer", new Producer());
@@ -38,20 +38,15 @@ public class ProducerController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addProducerPost(@ModelAttribute SearchCriteria searchCriteria, @ModelAttribute("producer")Producer producer, ModelMap modelMap){
+    public String addProducerPost(@ModelAttribute("producer")Producer producer, ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryService.getCategories());
         producerService.addProducer(producer);
         return "redirect:/admin";
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-    public String deleteProducer(@ModelAttribute SearchCriteria searchCriteria, ModelMap modelMap, @PathVariable Long id){
+    public String deleteProducer(ModelMap modelMap, @PathVariable Long id){
         producerService.deleteProducer(id);
         return "redirect:/admin";
-    }
-
-    @ModelAttribute
-    public SearchCriteria searchCriteria(){
-        return new SearchCriteria();
     }
 }

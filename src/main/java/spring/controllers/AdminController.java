@@ -31,16 +31,11 @@ public class AdminController {
      * @return
      */
     @RequestMapping(method = RequestMethod.GET)
-    public String showMenu(@ModelAttribute SearchCriteria searchCriteria, ModelMap modelMap){
+    public String showMenu(ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryService.getCategories());
         modelMap.addAttribute("producerList", producerServiceInterface.getProducers());
+        modelMap.addAttribute("active", "admin");
         return "admin/menu";
     }
 
-
-
-    @ModelAttribute
-    public SearchCriteria searchCriteria(){
-        return new SearchCriteria();
-    }
 }

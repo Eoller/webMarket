@@ -36,9 +36,9 @@
                             <c:if test="${active == 'news'}">class="active"</c:if> ><a
                             href="${pageContext.request.contextPath}/news/getAll"><spring:message code="news"/></a></li>
                     <li
-                            <c:if test="${active == 'contact'}">class="active"</c:if> ><a href="#"><spring:message code="Contact_us"/></a></li>
+                            <c:if test="${active == 'contact'}">class="active"</c:if> ><a href="${pageContext.request.contextPath}/email/send"><spring:message code="Contact_us"/></a></li>
                     <li
-                            <c:if test="${active == 'forum'}">class="active"</c:if> ><a href="#"><spring:message code="Forum"/></a></li>
+                            <c:if test="${active == 'forum'}">class="active"</c:if>  ><a href="#"><spring:message code="Forum"/></a></li>
                     <li
                             <c:if test="${active == 'admin'}">class="active"</c:if> >
                         <a href="${pageContext.request.contextPath}/admin"><spring:message code="Admin"/></a></li>

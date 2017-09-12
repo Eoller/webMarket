@@ -30,11 +30,9 @@
                             <div class="row">
                                 <div class="col-lg-10">
                                     <div class="container-fluid searchForm">
-                                        <form:form method="POST" commandName="searchCriteria"
-                                                   class="navbar-form navbar-left" action="${context}/searchString">
+                                        <form:form method="POST" class="navbar-form navbar-left" action="${context}/searchString">
                                             <div class="form-group">
-                                                <form:input path="searchString" class="form-control"
-                                                            placeholder="Search"/>
+                                                <input class="form-control" placeholder="Search" type="text" name="searchString">
                                             </div>
                                             <button type="submit" class="btn btn-default">Submit</button>
                                         </form:form>

@@ -28,13 +28,8 @@ public class ProductController {
     @Autowired
     private ProducerServiceInterface producerServiceInterface;
 
-    @ModelAttribute
-    public SearchCriteria searchCriteria(){
-        return new SearchCriteria();
-    }
-
     @RequestMapping(value = "/create",params ="form",method = RequestMethod.GET)
-    public String createProduct(@ModelAttribute SearchCriteria searchCriteria, ModelMap modelMap){
+    public String createProduct(ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
         modelMap.addAttribute("producerList", producerServiceInterface.getProducers());
         modelMap.addAttribute("product", new ProductDto());
@@ -42,7 +37,7 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/create" ,params="form",method = RequestMethod.POST)
-    public String createProductPost(@ModelAttribute SearchCriteria searchCriteria, @ModelAttribute("product") ProductDto productDto, @RequestParam("file") MultipartFile file, ModelMap modelMap) throws IOException {
+    public String createProductPost(@ModelAttribute("product") ProductDto productDto, @RequestParam("file") MultipartFile file, ModelMap modelMap) throws IOException {
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
         productDto.setPhoto(file.getBytes());
         shopServiceInterface.addProduct(new Product(productDto));
@@ -50,14 +45,14 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/delete/{id}",method = RequestMethod.GET)
-    public String deleteProduct(@ModelAttribute SearchCriteria searchCriteria, @PathVariable("id") Long id, ModelMap modelMap){
+    public String deleteProduct(@PathVariable("id") Long id, ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
         shopServiceInterface.removeProduct(id);
         return "redirect:/";
     }
 
     @RequestMapping(value = "/showDetails/{id}",method = RequestMethod.GET)
-    public String showProductDetails(@ModelAttribute SearchCriteria searchCriteria,@PathVariable("id") Long id, ModelMap modelMap){
+    public String showProductDetails(@PathVariable("id") Long id, ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
         Product shown = shopServiceInterface.getProductById(id);
         modelMap.addAttribute("product", shown);
@@ -65,7 +60,7 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/showDetails/{id}", params="form", method = RequestMethod.GET)
-    public String editForm(@ModelAttribute SearchCriteria searchCriteria,@PathVariable("id") Long id, ModelMap modelMap){
+    public String editForm(@PathVariable("id") Long id, ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
         Product shown = shopServiceInterface.getProductById(id);
         modelMap.addAttribute("product", shown);
@@ -73,7 +68,7 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/showDetails/{id}", params="form", method = RequestMethod.POST)
-    public String editFormPost(@ModelAttribute("product") Product product,@ModelAttribute SearchCriteria searchCriteria, @PathVariable("id") Long id, ModelMap modelMap, HttpServletRequest httpServletRequest){
+    public String editFormPost(@ModelAttribute("product") Product product,@PathVariable("id") Long id, ModelMap modelMap, HttpServletRequest httpServletRequest){
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
         //shopServiceInterface.updateProduct(product);
         modelMap.addAttribute("product", product);

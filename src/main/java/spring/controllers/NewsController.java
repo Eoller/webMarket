@@ -23,16 +23,14 @@ public class NewsController {
 
     @Autowired
     private NewsServiceInterface newsService;
-
     @Autowired
     private CategoryServiceInterface categoryService;
-
     @Autowired
     private ProducerServiceInterface producerService;
 
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
-    public String showNews(@ModelAttribute("searchCriteria") SearchCriteria searchCriteria, ModelMap modelMap ){
+    public String showNews(ModelMap modelMap ){
         modelMap.addAttribute("categoryList", categoryService.getCategories());
         modelMap.addAttribute("news", newsService.getAllNews());
         modelMap.addAttribute("active","news");
@@ -40,13 +38,13 @@ public class NewsController {
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-    public String deleteNews(@PathVariable("id") Long id, @ModelAttribute("searchCriteria") SearchCriteria searchCriteria, ModelMap modelMap){
+    public String deleteNews(@PathVariable("id") Long id,ModelMap modelMap){
         newsService.deleteNews(id);
         return "redirect:/news/getAll";
     }
 
     @RequestMapping(value = "/read/{id}", method = RequestMethod.GET)
-    public String readNews(@PathVariable("id") Long id, @ModelAttribute("searchCriteria") SearchCriteria searchCriteria, ModelMap modelMap){
+    public String readNews(@PathVariable("id") Long id, ModelMap modelMap){
         modelMap.addAttribute("news", newsService.getNewsById(id));
         modelMap.addAttribute("categoryList", categoryService.getCategories());
         modelMap.addAttribute("active","news");
@@ -54,7 +52,7 @@ public class NewsController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String addNews(@ModelAttribute("searchCriteria") SearchCriteria searchCriteria, ModelMap modelMap){
+    public String addNews(ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryService.getCategories());
         modelMap.addAttribute("producerList", producerService.getProducers());
         modelMap.addAttribute("news", new News());
@@ -62,16 +60,9 @@ public class NewsController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addNewsPost(@ModelAttribute("news") News news,@ModelAttribute("searchCriteria") SearchCriteria searchCriteria, ModelMap modelMap){
+    public String addNewsPost(@ModelAttribute("news") News news,ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryService.getCategories());
         newsService.add(news);
         return "redirect:/news/getAll";
     }
-
-
-    @ModelAttribute
-    public SearchCriteria searchCriteria(){
-        return new SearchCriteria();
-    }
-
 }

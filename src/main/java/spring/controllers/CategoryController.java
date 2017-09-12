@@ -26,7 +26,7 @@ public class CategoryController {
     private ProducerServiceInterface producerService;
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String addCategory(@ModelAttribute SearchCriteria searchCriteria,ModelMap modelMap){
+    public String addCategory(ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryService.getCategories());
         modelMap.addAttribute("producerList", producerService.getProducers());
         modelMap.addAttribute("category", new Category());
@@ -34,7 +34,7 @@ public class CategoryController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addCategoryPost(@ModelAttribute SearchCriteria searchCriteria,@ModelAttribute("category") Category category , ModelMap modelMap){
+    public String addCategoryPost(@ModelAttribute("category") Category category , ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryService.getCategories());
         categoryService.addCategory(category);
         return "redirect:/all";
@@ -45,14 +45,8 @@ public class CategoryController {
      * @return
      */
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-    public String deleteCategory(@ModelAttribute SearchCriteria searchCriteria, @PathVariable Long id, ModelMap modelMap){
+    public String deleteCategory(@PathVariable Long id, ModelMap modelMap){
         categoryService.deleteCategory(id);
         return "redirect:/admin";
     }
-
-    @ModelAttribute
-    public SearchCriteria searchCriteria(){
-        return new SearchCriteria();
-    }
-
 }
