@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb8e4a8c-09e4-4612-b32c-08713f6ca26c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/spring/controllers/ProductController.class" afterPath="$PROJECT_DIR$/target/classes/spring/controllers/ProductController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/spring/entities/Product.class" afterPath="$PROJECT_DIR$/target/classes/spring/entities/Product.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/internetMarket-1.0-SNAPSHOT/WEB-INF/classes/spring/controllers/ProductController.class" afterPath="$PROJECT_DIR$/target/internetMarket-1.0-SNAPSHOT/WEB-INF/classes/spring/controllers/ProductController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/internetMarket-1.0-SNAPSHOT/WEB-INF/classes/spring/entities/Product.class" afterPath="$PROJECT_DIR$/target/internetMarket-1.0-SNAPSHOT/WEB-INF/classes/spring/entities/Product.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/spring/controllers/ProductController.java" afterPath="$PROJECT_DIR$/src/main/java/spring/controllers/ProductController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/spring/entities/Product.java" afterPath="$PROJECT_DIR$/src/main/java/spring/entities/Product.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/create.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/create.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/product/details.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/product/details.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/product/edit.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/product/edit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/internetMarket-1.0-SNAPSHOT/WEB-INF/views/product/details.jsp" afterPath="$PROJECT_DIR$/target/internetMarket-1.0-SNAPSHOT/WEB-INF/views/product/details.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/internetMarket-1.0-SNAPSHOT/WEB-INF/views/product/edit.jsp" afterPath="$PROJECT_DIR$/target/internetMarket-1.0-SNAPSHOT/WEB-INF/views/product/edit.jsp" />
-    </list>
+    <list default="true" id="cb8e4a8c-09e4-4612-b32c-08713f6ca26c" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,8 +36,8 @@
       <file leaf-file-name="edit.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/product/edit.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="50" column="36" lean-forward="false" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+            <state relative-caret-position="119">
+              <caret line="49" column="25" lean-forward="true" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -1462,16 +1449,15 @@
       <workItem from="1505152595398" duration="94000" />
       <workItem from="1505155467241" duration="7782000" />
       <workItem from="1505200849795" duration="23373000" />
-      <workItem from="1505289840311" duration="6785000" />
+      <workItem from="1505289840311" duration="7619000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="224853000" />
+    <option name="totallyTimeSpent" value="225687000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1493,7 +1479,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39589906" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39589906" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24524158" sideWeight="0.30548304" order="2" side_tool="true" content_ui="tabs" />
@@ -1911,8 +1897,8 @@
         <state relative-caret-position="110">
           <caret line="98" column="16" lean-forward="false" selection-start-line="98" selection-start-column="16" selection-end-line="98" selection-end-column="16" />
           <folding>
-            <element signature="e#2479#2480#0" expanded="true" />
-            <element signature="e#2513#2514#0" expanded="true" />
+            <element signature="e#2479#2480#0" expanded="false" />
+            <element signature="e#2513#2514#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1983,8 +1969,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/product/edit.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="50" column="36" lean-forward="false" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+        <state relative-caret-position="119">
+          <caret line="49" column="25" lean-forward="true" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
           <folding />
         </state>
       </provider>
