@@ -74,7 +74,7 @@
                     <div class="col-lg-2">
                         <form:select path="producerId">
                             <form:option value="0" label="Select producer"/>
-                            <form:options items="${producersList}" itemValue="id" itemLabel="name"/>
+                            <form:options items="${producerList}" itemValue="id" itemLabel="name"/>
                         </form:select>
                     </div>
                     <div class="col-lg-3">

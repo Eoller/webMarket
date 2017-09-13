@@ -7,7 +7,7 @@ import java.util.Arrays;
 /**
  * Created by Eoller on 24-Aug-17.
  */
-public class Product implements java.io.Serializable{
+public class Product implements java.io.Serializable {
     private Long id;
     private String name;
     private Long price;
@@ -17,9 +17,10 @@ public class Product implements java.io.Serializable{
     private Category categoryId;
     private Producer producerId;
 
-    public Product(){}
+    public Product() {
+    }
 
-    public Product(ProductDto productDto){
+    public Product(ProductDto productDto) {
         this.name = productDto.getName();
         this.price = productDto.getPrice();
         this.dscr = productDto.getDscr();
@@ -27,6 +28,36 @@ public class Product implements java.io.Serializable{
         this.uniqueNumber = productDto.getUniqueNumber();
         setCategoryId(new Category(productDto.getCategoryId()));
         setProducerId(new Producer(productDto.getProducerId()));
+    }
+
+    public Product(Product product) {
+        this.id = product.getId();
+        this.name = product.getName();
+        this.price = product.getPrice();
+        this.dscr = product.getDscr();
+        this.photo = product.getPhoto();
+        this.uniqueNumber = product.getUniqueNumber();
+        this.categoryId = product.getCategoryId();
+        this.producerId = product.getProducerId();
+    }
+
+    public void changeVar(Product product) {
+        this.id = product.getId();
+        this.name = product.getName();
+        this.price = product.getPrice();
+        this.dscr = product.getDscr();
+        if (product.getPhoto() != null) {
+            this.photo = product.getPhoto();
+        }
+        if(product.getUniqueNumber() != null){
+            this.uniqueNumber = product.getUniqueNumber();
+        }
+        if(product.getCategoryId() != null){
+            this.categoryId = product.getCategoryId();
+        }
+        if(product.producerId != null){
+            this.producerId = product.getProducerId();
+        }
     }
 
     public Long getId() {

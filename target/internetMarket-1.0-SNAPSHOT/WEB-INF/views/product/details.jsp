@@ -41,9 +41,6 @@
         </div>
     </div>
     <div class="panel panel-default" style="margin-top: 40px;">
-        <div class="panel-heading">
-            <h3 class="panel-title">Description</h3>
-        </div>
         <div class="panel-body">${product.dscr}</div>
     </div>
 </div>
