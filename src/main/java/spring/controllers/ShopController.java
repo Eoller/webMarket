@@ -24,11 +24,10 @@ import java.util.Locale;
  * Created by Eoller on 28-Aug-17.
  */
 
-
 @Controller
 public class ShopController {
 
-    private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ShopController.class);
 
     @Autowired
     private ShopServiceInterface shopServiceInterface;
@@ -42,7 +41,7 @@ public class ShopController {
      *
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String main(HttpSession session, ModelMap modelMap, Locale locale) {
+    public String main(HttpSession session,Locale locale, HttpSession httpSession) {
         WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(session.getServletContext());
         logger.info("Welcome admin! Your locale now is {}.", locale);
         return "redirect:/all";
@@ -77,12 +76,12 @@ public class ShopController {
      *
      */
     @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public String showAll(ModelMap modelMap){
-        List<Category> categories = categoryServiceInterface.getCategories();
-        modelMap.addAttribute("categoryList", categories);
+    public String showAll(ModelMap modelMap, HttpSession httpSession){
+        modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
         modelMap.addAttribute("productList", shopServiceInterface.getAllProducts());
         modelMap.addAttribute("active","main");
         logger.info("/all was calling");
+        logger.info("Atribute in HttpSession in /all is {}", httpSession.getAttribute("categoryList"));
         return "list";
     }
 

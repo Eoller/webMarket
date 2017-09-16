@@ -2,6 +2,8 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-5">
+            <span class="label label-info">${product.producerId.name}</span>
+
             <div class="detailImg">
                 <img src="${pageContext.request.contextPath}/productImage/${product.id}">
             </div>
@@ -26,21 +28,30 @@
                     Buy
                 </button>
             </form>
+            <hr>
 
             <form action="#">
                 <button type="submit" class="btn btn-default btn-md detailButton">Add to Card</button>
             </form>
-            <hr>
-            <a href="${pageContext.request.contextPath}/showDetails/${product.id}?form" class="btn btn-default" role="button">Edit</a>
 
-            <form action="${pageContext.request.contextPath}/delete/${product.id}">
-                <button type="submit" class="btn btn-default btn-md detailButton"
-                        style="background-color: #ff0000; border-color: black;">Delete
-                </button>
-            </form>
+
         </div>
     </div>
     <div class="panel panel-default" style="margin-top: 40px;">
         <div class="panel-body">${product.dscr}</div>
     </div>
+
+    <div class="admin-button">
+    <span class="label label-warning"> <a style="color:white;" href="${pageContext.request.contextPath}/showDetails/${product.id}?form">Edit</a></span>
+    <span class="label label-danger"><a style="color:white;" href="${pageContext.request.contextPath}/delete/${product.id}" >Delete</a></span>
+    </div>
+
+    <!--
+    <a href="${pageContext.request.contextPath}/showDetails/${product.id}?form" class="btn btn-default"
+       role="button">Edit</a>
+    <a href="${pageContext.request.contextPath}/delete/${product.id}" class="btn btn-default" role="button">Delete</a>
+    </div>-->
 </div>
+
+
+

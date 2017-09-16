@@ -1,5 +1,7 @@
 package spring.controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,6 +15,7 @@ import spring.services.ProducerServiceInterface;
 import spring.services.ShopServiceInterface;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -20,6 +23,9 @@ import java.io.IOException;
  */
 @Controller
 public class ProductController {
+
+    private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
+
     @Autowired
     private ShopServiceInterface shopServiceInterface;
     @Autowired
@@ -52,10 +58,11 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/showDetails/{id}", method = RequestMethod.GET)
-    public String showProductDetails(@PathVariable("id") Long id, ModelMap modelMap) {
+    public String showProductDetails(@PathVariable("id") Long id, ModelMap modelMap, HttpSession httpSession) {
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
         Product shown = shopServiceInterface.getProductById(id);
         modelMap.addAttribute("product", shown);
+        logger.info("Atribute in HttpSession in /showDetails is {}", httpSession.getAttribute("categoryList"));
         return "showDetails";
     }
 
@@ -73,17 +80,10 @@ public class ProductController {
     @RequestMapping(value = "/showDetails/{id}", params = "form", method = RequestMethod.POST)
     public String editFormPost(@ModelAttribute("product") Product product, @PathVariable("id") Long id, ModelMap modelMap,@RequestParam("file") MultipartFile file, HttpServletRequest httpServletRequest) throws IOException {
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
-        Product changed = shopServiceInterface.getProductById(id);
-        if (!httpServletRequest.getParameter("category").equals("0"))
-            product.setCategoryId(new Category(Long.valueOf(httpServletRequest.getParameter("category")).longValue()));
-        if (!httpServletRequest.getParameter("producer").equals("0"))
-            product.setProducerId(new Producer(Long.valueOf(httpServletRequest.getParameter("producer")).longValue()));
         if(!file.isEmpty()){
             product.setPhoto(file.getBytes());
         }
-        changed.changeVar(product);
-
-        shopServiceInterface.updateProduct(changed);
+        shopServiceInterface.updateProduct(product);
         return "redirect:/showDetails/" + id;
     }
 

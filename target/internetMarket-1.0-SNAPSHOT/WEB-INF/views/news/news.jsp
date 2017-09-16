@@ -14,18 +14,23 @@
                                             <h4>${new.topic} </h4>
                                         </div>
                                         <div class="col-lg-2">
+                                            <div class="deletenewform" style="text-align: right">
                                             <form action="${pageContext.request.contextPath}/news/read/${new.id}">
                                                 <button type="submit" class="btn btn-default btn-md">
                                                     <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
                                                     Read
                                                 </button>
                                             </form>
-                                            <form action="${pageContext.request.contextPath}/news/delete/${new.id}">
+
+                                            <span class="label label-danger"><a style="color:white;"
+                                                                                href="${pageContext.request.contextPath}/news/delete/${new.id}">Delete</a></span>
+                                            </div>
+                                            <!--<form action="${pageContext.request.contextPath}/news/delete/${new.id}">
                                                 <button type="submit" class="btn btn-default btn-md">
                                                     <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                                                     Delete
                                                 </button>
-                                            </form>
+                                            </form>-->
                                         </div>
                                     </div>
                                 </div>

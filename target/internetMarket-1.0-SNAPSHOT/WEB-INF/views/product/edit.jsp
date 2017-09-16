@@ -31,23 +31,26 @@
                         Price:<form:input path="price"/>
                     </div>
                 </div>
+
                 <div class="panel panel-default">
                     <div class="panel-body"><strong></strong>
                         Unique number:<form:input path="uniqueNumber"/>
                     </div>
                 </div>
-                <select name="category">
-                    <option value="0">Change category to</option>
-                    <c:forEach items="${categoryList}" var="category">
-                        <option value="${category.id}">${category.name}</option>
-                    </c:forEach>
-                </select>
-                <select name="producer">
-                    <option value="0">Change producer to</option>
-                    <c:forEach items="${producerList}" var="producer">
-                        <option value="${producer.id}">${producer.name}</option>
-                    </c:forEach>
-                </select>
+                
+                <form:hidden path="id"/>
+                <form:hidden path="photo"/>
+
+                <form:select path="categoryId.id">
+                    <form:option value="0" label="Select category"/>
+                    <form:options items="${categoryList}" itemValue="id" itemLabel="name"/>
+                </form:select>
+
+                <form:select path="producerId.id">
+                    <form:option value="0" label="Select producer"/>
+                    <form:options items="${producerList}" itemValue="id" itemLabel="name"/>
+                </form:select>
+
                 <h5>To change photo:</h5>
                 <input type="file" name="file">
             </div>
