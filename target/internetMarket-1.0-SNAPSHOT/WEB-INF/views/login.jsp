@@ -3,44 +3,41 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 
-<link href="<c:url value="/resources/css/home.css" />" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+
 </head>
 
 <body>
 
+	<c:if test="${not empty error}">
+		${error}
+	</c:if>
 
 
-	<form:form method="POST" commandName="user" action="check-user" class="box login">
+	<form name='form_login' action="j_spring_security_check" method='POST'>
+		<table>
+			<tr>
+				<td>User:</td>
+				<td><input type='text' name='user_login' value=''></td>
+			</tr>
+			<tr>
+				<td>Password:</td>
+				<td><input type='password' name='password_login' /></td>
+			</tr>
+			<tr>
+				<td><input name="submit" type="submit" value="submit" /></td>
+			</tr>
+		</table>
+	</form>
 
-			<span style="float: right">
-		<a href="?lang=en">en</a>
-		<a href="?lang=ru">ru</a>
-	</span>
-
-		<fieldset class="boxBody">
-
-			<form:label path="name"><spring:message code="username"/></form:label>
-			<form:input path="name" />
-
-			<form:label path="password"><spring:message code="password"/></form:label>
-			<form:password path="password"/>
-
-		</fieldset>
-
-		<footer> <label><input type="checkbox" tabindex="3">Keep me logged in</label> 
-			<input type="submit" class="btnLogin" value="Login" tabindex="4"> 
-		</footer>
-
-	</form:form>
 
 
 </body>

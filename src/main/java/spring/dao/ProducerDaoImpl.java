@@ -2,10 +2,12 @@ package spring.dao;
 
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import spring.entities.Producer;
+import spring.entities.Product;
 
 import java.util.List;
 
@@ -33,6 +35,10 @@ public class ProducerDaoImpl implements ProducerDaoInterface {
     @Transactional
     public void deleteProducer(Long id) {
         Producer producer = (Producer) sessionFactory.getCurrentSession().load(Producer.class, id);
+        List<Product> products = (List<Product>) sessionFactory.getCurrentSession().createCriteria(Product.class).add(Restrictions.eq("producerId.id", producer.getId())).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+        for (Product product: products ) {
+            sessionFactory.getCurrentSession().delete(product);
+        }
         sessionFactory.getCurrentSession().delete(producer);
     }
 }

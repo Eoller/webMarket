@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import spring.dto.ProductDto;
 import spring.entities.Category;
 import spring.entities.Producer;
 import spring.entities.Product;
@@ -28,19 +27,20 @@ public class ProductController {
     @Autowired
     private ProducerServiceInterface producerServiceInterface;
 
+
     @RequestMapping(value = "/create", params = "form", method = RequestMethod.GET)
     public String createProduct(ModelMap modelMap) {
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
         modelMap.addAttribute("producerList", producerServiceInterface.getProducers());
-        modelMap.addAttribute("product", new ProductDto());
+        modelMap.addAttribute("product", new Product());
         return "admin/create";
     }
 
     @RequestMapping(value = "/create", params = "form", method = RequestMethod.POST)
-    public String createProductPost(@ModelAttribute("product") ProductDto productDto, @RequestParam("file") MultipartFile file, ModelMap modelMap) throws IOException {
+    public String createProductPost(@ModelAttribute("product") Product product, @RequestParam("file") MultipartFile file, ModelMap modelMap) throws IOException {
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
-        productDto.setPhoto(file.getBytes());
-        shopServiceInterface.addProduct(new Product(productDto));
+        product.setPhoto(file.getBytes());
+        shopServiceInterface.addProduct(new Product(product));
         return "redirect:/";
     }
 

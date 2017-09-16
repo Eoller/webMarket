@@ -1,16 +1,14 @@
 package spring.controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-import org.springframework.web.multipart.MultipartFile;
-import spring.dto.ProductDto;
 import spring.entities.Category;
-import spring.entities.Product;
 import spring.objects.EmailModel;
 import spring.objects.SearchCriteria;
 import spring.services.CategoryServiceInterface;
@@ -19,9 +17,8 @@ import spring.services.ShopServiceInterface;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Eoller on 28-Aug-17.
@@ -30,6 +27,9 @@ import java.util.List;
 
 @Controller
 public class ShopController {
+
+    private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
+
     @Autowired
     private ShopServiceInterface shopServiceInterface;
     @Autowired
@@ -42,8 +42,9 @@ public class ShopController {
      *
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String main(HttpSession session, ModelMap modelMap) {
+    public String main(HttpSession session, ModelMap modelMap, Locale locale) {
         WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(session.getServletContext());
+        logger.info("Welcome admin! Your locale now is {}.", locale);
         return "redirect:/all";
     }
 
@@ -81,6 +82,7 @@ public class ShopController {
         modelMap.addAttribute("categoryList", categories);
         modelMap.addAttribute("productList", shopServiceInterface.getAllProducts());
         modelMap.addAttribute("active","main");
+        logger.info("/all was calling");
         return "list";
     }
 

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import spring.entities.Category;
+import spring.entities.Product;
 
 import java.util.List;
 
@@ -43,6 +44,10 @@ public class CategoryDaoImpl implements CategoryDaoInterface {
     @Transactional
     public void deleteCategory(Long id) {
         Category category = (Category) sessionFactory.getCurrentSession().load(Category.class, id);
+        List<Product> products = (List<Product>) sessionFactory.getCurrentSession().createCriteria(Product.class).add(Restrictions.eq("categoryId.id", category.getId())).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+        for (Product product: products ) {
+            sessionFactory.getCurrentSession().delete(product);
+         }
         sessionFactory.getCurrentSession().delete(category);
     }
 }

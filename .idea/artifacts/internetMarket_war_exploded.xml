@@ -10,16 +10,19 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.1.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.1.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.1.5.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.1.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.1.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.1.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-orm:4.1.5.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.1.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.webjars:bootstrap:3.3.7" />
           <element id="library" level="project" name="Maven: org.webjars:jquery:3.2.1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.1.5.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.1.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:3.2.5.RELEASE" />
           <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.1.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.1.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.1.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.8.10" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.6.1" />
           <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.6.1" />

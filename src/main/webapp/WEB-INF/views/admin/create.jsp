@@ -66,13 +66,13 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-2">
-                        <form:select path="categoryId">
+                        <form:select path="categoryId.id">
                             <form:option value="0" label="Select category"/>
                             <form:options items="${categoryList}" itemValue="id" itemLabel="name"/>
                         </form:select>
                     </div>
                     <div class="col-lg-2">
-                        <form:select path="producerId">
+                        <form:select path="producerId.id">
                             <form:option value="0" label="Select producer"/>
                             <form:options items="${producerList}" itemValue="id" itemLabel="name"/>
                         </form:select>
