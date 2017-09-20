@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="caption" style="position: absolute; bottom: 0; width: 170px; left: 45px;">
-                        <div class="name" style="text-align: center">
+                        <div class="name" style="text-align: center;">
                             <h4>${abc.name}</h4>
                         </div>
                         <p>${abc.price}$</p>

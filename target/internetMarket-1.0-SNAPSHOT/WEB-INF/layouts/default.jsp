@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <link href="<c:url value="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>" rel="stylesheet"/>
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" type="text/css">
     <c:set var="context" value="${pageContext.request.contextPath}"/>
 </head>
 <body>
@@ -30,11 +30,14 @@
                             <div class="row">
                                 <div class="col-lg-10">
                                     <div class="container-fluid searchForm">
-                                        <form:form method="POST" class="navbar-form navbar-left" action="${context}/searchString">
+                                        <form:form method="POST" class="navbar-form navbar-left"
+                                                   action="${context}/searchString">
                                             <div class="form-group">
-                                                <input class="form-control" placeholder="Search" type="text" name="searchString">
+                                                <input class="form-control" placeholder="Search" type="text"
+                                                       name="searchString">
                                             </div>
                                             <button type="submit" class="btn btn-default">Submit</button>
+
                                         </form:form>
                                     </div>
                                 </div>
@@ -64,8 +67,6 @@
 <div class="footerWrapper">
     <tiles:insertAttribute name="footer" ignore="true"/>
 </div>
-
-
 <script src="${context}/webjars/jquery/3.2.1/jquery.min.js"></script>
 <script src="${context}/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>

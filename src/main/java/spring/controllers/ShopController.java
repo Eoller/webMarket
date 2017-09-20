@@ -52,10 +52,11 @@ public class ShopController {
      *
      */
     @RequestMapping(value = "/getList/{id}/{name}", method = RequestMethod.GET)
-    public String show(@PathVariable("id") Long id,@PathVariable("name") String name, ModelMap modelMap){
+    public String show(@PathVariable("id") Long id,@PathVariable("name") String name, ModelMap modelMap, HttpSession httpSession){
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
         modelMap.addAttribute("productList", shopServiceInterface.searchProductByCategory(new Category(id,name)));
         modelMap.addAttribute("active", name);
+        modelMap.addAttribute("sessionId", httpSession.getId());
         return "list";
     }
 
@@ -64,7 +65,7 @@ public class ShopController {
      *
      */
     @RequestMapping(value = "/searchString", method = RequestMethod.POST)
-    public String searchByString(@ModelAttribute SearchCriteria searchCriteria, ModelMap modelMap, HttpServletRequest request){
+    public String searchByString(@ModelAttribute SearchCriteria searchCriteria, ModelMap modelMap, HttpServletRequest request, HttpSession httpSession){
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
         String searchString = request.getParameter("searchString");
         modelMap.addAttribute("productList", shopServiceInterface.searchProductBySearchString(searchString));
@@ -78,15 +79,26 @@ public class ShopController {
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public String showAll(ModelMap modelMap, HttpSession httpSession){
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
+        modelMap.addAttribute("producersList", producerServiceInterface.getProducers());
         modelMap.addAttribute("productList", shopServiceInterface.getAllProducts());
         modelMap.addAttribute("active","main");
+        modelMap.addAttribute("sessionId", httpSession.getId());
         logger.info("/all was calling");
         logger.info("Atribute in HttpSession in /all is {}", httpSession.getAttribute("categoryList"));
         return "list";
     }
 
+    @RequestMapping(value = "/main", method = RequestMethod.GET)
+    public String mainShow(ModelMap modelMap, HttpSession httpSession){
+        modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
+        modelMap.addAttribute("active","main");
+        return "main";
+    }
+
+
+
     @RequestMapping(value = "/email/send", method = RequestMethod.GET)
-    public String showEmailForm(ModelMap modelMap){
+    public String showEmailForm(ModelMap modelMap, HttpSession httpSession){
         modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
         modelMap.addAttribute("emailModel",new EmailModel());
         modelMap.addAttribute("active","contact");

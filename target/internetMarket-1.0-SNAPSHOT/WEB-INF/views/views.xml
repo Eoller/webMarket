@@ -4,6 +4,7 @@
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 
+
     <definition extends="default" name="list">
         <put-attribute name="body" value="/WEB-INF/views/product/list.jsp"/>
     </definition>
@@ -48,5 +49,17 @@
         <put-attribute name="body" value="/WEB-INF/views/contactForm.jsp"/>
     </definition>
 
+    <definition extends="default" name="main">
+        <put-attribute name="body" value="/WEB-INF/views/main.jsp"/>
+    </definition>
+
+    <definition extends="default" name="login">
+        <put-attribute name="body" value="/WEB-INF/views/login.jsp"/>
+    </definition>
+
+
+    <definition extends="default" name="cart">
+        <put-attribute name="body" value="/WEB-INF/views/cart.jsp"/>
+    </definition>
 
 </tiles-definitions>

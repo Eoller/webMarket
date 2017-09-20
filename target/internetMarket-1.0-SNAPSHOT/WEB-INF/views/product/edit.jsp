@@ -37,7 +37,7 @@
                         Unique number:<form:input path="uniqueNumber"/>
                     </div>
                 </div>
-                
+
                 <form:hidden path="id"/>
                 <form:hidden path="photo"/>
 
@@ -55,7 +55,8 @@
                 <input type="file" name="file">
             </div>
             <div class="col-lg-2">
-                <a href="${pageContext.request.contextPath}/showDetails/${product.id}" class="btn btn-default" role="button">Cancel</a>
+                <a href="${pageContext.request.contextPath}/showDetails/${product.id}" class="btn btn-default"
+                   role="button">Cancel</a>
                 <form:button type="submit">Save</form:button>
             </div>
         </div>

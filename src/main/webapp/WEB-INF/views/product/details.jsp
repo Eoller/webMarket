@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="container-fluid">
     <div class="row">
@@ -29,11 +30,9 @@
                 </button>
             </form>
             <hr>
-
-            <form action="#">
+            <form action="${pageContext.request.contextPath}/cart/add/${product.id}">
                 <button type="submit" class="btn btn-default btn-md detailButton">Add to Card</button>
             </form>
-
 
         </div>
     </div>
@@ -42,10 +41,32 @@
     </div>
 
     <div class="admin-button">
-    <span class="label label-warning"> <a style="color:white;" href="${pageContext.request.contextPath}/showDetails/${product.id}?form">Edit</a></span>
-    <span class="label label-danger"><a style="color:white;" href="${pageContext.request.contextPath}/delete/${product.id}" >Delete</a></span>
+        <a href="${pageContext.request.contextPath}/showDetails/${product.id}?form" class="btn btn-primary" role="button">Edit</a>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            Delete
+        </button>
     </div>
 
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Deleting ${product.name}</h4>
+                </div>
+                <div class="modal-body">
+                    Are you sure that you want to remove product with name: ${product.name} from the database?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a href="${pageContext.request.contextPath}/delete/${product.id}" class="btn btn-primary" role="button">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--
     <a href="${pageContext.request.contextPath}/showDetails/${product.id}?form" class="btn btn-default"
        role="button">Edit</a>

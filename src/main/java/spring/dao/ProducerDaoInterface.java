@@ -12,4 +12,5 @@ public interface ProducerDaoInterface {
     public List<Producer> getProducers();
     public void addProducer(Producer producer);
     public void deleteProducer(Long id);
+
 }
