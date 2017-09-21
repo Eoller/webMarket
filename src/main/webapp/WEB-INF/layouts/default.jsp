@@ -69,5 +69,21 @@
 </div>
 <script src="${context}/webjars/jquery/3.2.1/jquery.min.js"></script>
 <script src="${context}/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+        var prefix = '/cart/delete';
+
+        var RestDelete = function (id) {
+            $.ajax({
+               type: 'DELETE',
+                async: true,
+                url: 'http://localhost:8080/internetMarket-1.0-SNAPSHOT/cart/delete/' + id,
+                success: function (result) {
+                    $("#modl"+result).hide();
+                }
+            });
+        }
+
+</script>
 </body>
 </html>

@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <link href="<c:url value="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>" rel="stylesheet"/>
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <c:set var="context" value="${pageContext.request.contextPath}"/>
 </head>
 <body>
@@ -69,5 +69,21 @@
 </div>
 <script src="${context}/webjars/jquery/3.2.1/jquery.min.js"></script>
 <script src="${context}/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+        var prefix = '/cart/delete';
+
+        var RestDelete = function (id) {
+            $.ajax({
+               type: 'DELETE',
+                async: true,
+                url: 'http://localhost:8080/internetMarket-1.0-SNAPSHOT/cart/delete/' + id,
+                success: function (result) {
+                    $("#modl"+result).hide();
+                }
+            });
+        }
+
+</script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="context" value="${pageContext.request.contextPath}"/>
-<button id="but1" style="display: none" class="btn btn-default">showProducers</button>
+
 <div class="listCategory">
 
     <div class="list-group producersList" style="display: none;" >

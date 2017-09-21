@@ -69,7 +69,7 @@
                 </div>
                 <div class="modal-body">
                     <c:forEach items="${sessionScope.cart.productList}" var="item">
-                        <div class="media">
+                        <div class="media" id="modl${item.product.id}">
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-lg-3">
@@ -94,6 +94,7 @@
 
                                             </div>
                                         </div>
+                                        <button id="but1" onclick="RestDelete(${item.product.id})" class="btn btn-default">Delete</button>
                                     </div>
                                     <div class="col-lg-1">
                                         <a href="${pageContext.request.contextPath}/cart/delete/${item.product.id}"><span
