@@ -10,6 +10,7 @@
     <link href="<c:url value="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>" rel="stylesheet"/>
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <c:set var="context" value="${pageContext.request.contextPath}"/>
 </head>
 <body>
@@ -71,6 +72,22 @@
 <script src="${context}/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
+        var ShowList = function (id) {
+            $.ajax({
+                type: 'GET',
+                async: true,
+                url: "http://localhost:8080/internetMarket-1.0-SNAPSHOT/json/getList/" + id,
+                success: function (data) {
+                    $.each(data, function (index, product) {
+                        var uri = "http://localhost:8080/internetMarket-1.0-SNAPSHOT/productImage/" + product.id;
+                        $(".listProducts").html("<img src="+ uri +">");
+                    });
+
+                }
+            });
+        }
+
+
         var prefix = '/cart/delete';
 
         var RestDelete = function (id) {
@@ -81,6 +98,13 @@
                 success: function (result) {
                     $("#modl"+result).hide();
                 }
+            });
+        }
+        
+        var RestDelete1 = function (id) {
+            var url = "http://localhost:8080/internetMarket-1.0-SNAPSHOT/ajax/test/"+id;
+            $.get( url , function (data, status) {
+                    alert("Data: " + data);
             });
         }
 

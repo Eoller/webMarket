@@ -21,20 +21,20 @@
             </div>
             <div class="col-lg-5">
                 <div class="panel panel-default">
-                    <div class="panel-body"><strong>
+                    <div class="panel-body"><orm:er>
 
-                        Name:<form:input path="name"/>
+                        Name:<form:input path="name"/><form:errors path="name" cssClass="error"/>
                     </div>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-body"><strong></strong>
-                        Price:<form:input path="price"/>
+                        Price:<form:input path="price"/><form:errors path="price" cssClass="error"/>
                     </div>
                 </div>
 
                 <div class="panel panel-default">
                     <div class="panel-body"><strong></strong>
-                        Unique number:<form:input path="uniqueNumber"/>
+                        Unique number:<form:input path="uniqueNumber"/><form:errors path="uniqueNumber" cssClass="error"/>
                     </div>
                 </div>
 
@@ -65,7 +65,7 @@
                 <h3 class="panel-title">Description</h3>
             </div>
             <div class="panel-body">
-                <form:textarea cols="60" rows="8" path="dscr"/>
+                <form:textarea cols="60" rows="8" path="dscr"/><form:errors path="dscr" cssClass="error"/>
             </div>
         </div>
     </div>

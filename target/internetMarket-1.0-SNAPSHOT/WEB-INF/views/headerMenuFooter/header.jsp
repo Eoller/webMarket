@@ -34,7 +34,7 @@
                 <ul class="nav nav-pills">
                     <li
                             <c:if test="${active == 'main'}">class="active"</c:if> ><a
-                            href="${pageContext.request.contextPath}/all"><spring:message code="Main"/></a></li>
+                            href="<spring:url value="/all"/>"><spring:message code="Main"/></a></li>
                     <li
                             <c:if test="${active == 'news'}">class="active"</c:if> ><a
                             href="${pageContext.request.contextPath}/news/getAll"><spring:message code="news"/></a></li>

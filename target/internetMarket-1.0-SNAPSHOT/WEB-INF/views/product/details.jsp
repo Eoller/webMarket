@@ -8,6 +8,7 @@
             <div class="detailImg">
                 <img src="${pageContext.request.contextPath}/productImage/${product.id}">
             </div>
+
             <div class="detailImgTxt">
                 Press and hold to make the image bigger.
             </div>
@@ -33,6 +34,9 @@
             <form action="${pageContext.request.contextPath}/cart/add/${product.id}">
                 <button type="submit" class="btn btn-default btn-md detailButton">Add to Card</button>
             </form>
+            <!-- <button class="buttonload">
+                 <i class="fa fa-spinner fa-spin"></i>Loading
+             </button> -->
 
         </div>
     </div>
@@ -41,15 +45,16 @@
     </div>
 
     <div class="admin-button">
-        <a href="${pageContext.request.contextPath}/showDetails/${product.id}?form" class="btn btn-primary" role="button">Edit</a>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        <a href="${pageContext.request.contextPath}/showDetails/${product.id}?form" class="btn btn-primary"
+           role="button">Edit</a>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalDelete">
             Delete
         </button>
     </div>
 
 
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="myModalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -62,7 +67,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <a href="${pageContext.request.contextPath}/delete/${product.id}" class="btn btn-primary" role="button">Delete</a>
+                    <a href="${pageContext.request.contextPath}/delete/${product.id}" class="btn btn-primary"
+                       role="button">Delete</a>
                 </div>
             </div>
         </div>

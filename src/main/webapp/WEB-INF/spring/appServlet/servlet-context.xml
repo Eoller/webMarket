@@ -41,7 +41,7 @@
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<!-- Java Mail Configuration -->
-	<!-- You can also create .properties file with tags like java.mail.password = somepass, and take this here adding  <context:property-placeholder location="classpath:util.properties" />
+	<!-- You can also create .properties file with tags like java.mail.password = somepass, and take this here adding  <context:property-placeholder location="" />
 	and invoke the variable using this tags ${java.mail.password}-->
 	<beans:bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<beans:property name="host" value="smtp.gmail.com"/>

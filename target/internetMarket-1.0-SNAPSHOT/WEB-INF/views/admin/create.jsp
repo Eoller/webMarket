@@ -43,24 +43,26 @@
         <form:form modelAttribute="product" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 Product name:
+
                 <form:input path="name" class="form-control"
-                            placeholder="Product name"/>
+                            placeholder="Product name"/><form:errors path="name" cssClass="error"/>
             </div>
             <div class="form-group">
                 Product price:
                 <form:input path="price" class="form-control"
-                            placeholder="Product price"/>
+                            placeholder="Product price"/><form:errors path="price" cssClass="error"/>
             </div>
             <div class="form-group">
                 Product dscr:
                 <form:input path="dscr" class="form-control"
                             placeholder="Product dscr"/>
+                <form:errors path="dscr" cssClass="error"/>
             </div>
 
             <div class="form-group">
                 Product unique number:
                 <form:input path="uniqueNumber" class="form-control"
-                            placeholder="Product unique number"/>
+                            placeholder="Product unique number"/><form:errors path="uniqueNumber" cssClass="error"/>
             </div>
 
             <div class="container-fluid">
@@ -69,13 +71,13 @@
                         <form:select path="categoryId.id">
                             <form:option value="0" label="Select category"/>
                             <form:options items="${categoryList}" itemValue="id" itemLabel="name"/>
-                        </form:select>
+                        </form:select><form:errors path="categoryId" cssClass="error"/>
                     </div>
                     <div class="col-lg-2">
                         <form:select path="producerId.id">
                             <form:option value="0" label="Select producer"/>
                             <form:options items="${producerList}" itemValue="id" itemLabel="name"/>
-                        </form:select>
+                        </form:select><form:errors path="producerId" cssClass="error"/>
                     </div>
                     <div class="col-lg-3">
                         <Photo></Photo>:<input type="file" name="file">

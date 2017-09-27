@@ -1,18 +1,36 @@
 package spring.entities;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Arrays;
 
 /**
  * Created by Eoller on 24-Aug-17.
  */
 public class Product implements java.io.Serializable {
+
     private Long id;
+
+    @NotEmpty
+    @Size(min = 3, max = 15)
     private String name;
+
+    @Min(100)
     private Long price;
+
+    @NotEmpty
     private String dscr;
+
     private byte[] photo;
+    @NotEmpty
+    @Size(min = 3, max = 30)
     private String uniqueNumber;
+
     private Category categoryId;
+
     private Producer producerId;
 
     public Product() {
@@ -112,34 +130,4 @@ public class Product implements java.io.Serializable {
         this.producerId = producerId;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Product product = (Product) o;
-
-        if (!id.equals(product.id)) return false;
-        if (!name.equals(product.name)) return false;
-        if (price != null ? !price.equals(product.price) : product.price != null) return false;
-        if (dscr != null ? !dscr.equals(product.dscr) : product.dscr != null) return false;
-        if (!Arrays.equals(photo, product.photo)) return false;
-        if (uniqueNumber != null ? !uniqueNumber.equals(product.uniqueNumber) : product.uniqueNumber != null)
-            return false;
-        if (!categoryId.equals(product.categoryId)) return false;
-        return producerId.equals(product.producerId);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + name.hashCode();
-        result = 31 * result + (price != null ? price.hashCode() : 0);
-        result = 31 * result + (dscr != null ? dscr.hashCode() : 0);
-        result = 31 * result + Arrays.hashCode(photo);
-        result = 31 * result + (uniqueNumber != null ? uniqueNumber.hashCode() : 0);
-        result = 31 * result + categoryId.hashCode();
-        result = 31 * result + producerId.hashCode();
-        return result;
-    }
 }

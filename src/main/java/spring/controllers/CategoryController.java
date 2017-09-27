@@ -3,6 +3,7 @@ package spring.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,8 @@ import spring.entities.Category;
 import spring.objects.SearchCriteria;
 import spring.services.CategoryServiceInterface;
 import spring.services.ProducerServiceInterface;
+
+import javax.validation.Valid;
 
 /**
  * Created by Eoller on 11-Sep-17.
@@ -34,8 +37,11 @@ public class CategoryController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addCategoryPost(@ModelAttribute("category") Category category , ModelMap modelMap){
+    public String addCategoryPost(@Valid @ModelAttribute("category") Category category , Errors errors, ModelMap modelMap){
         modelMap.addAttribute("categoryList", categoryService.getCategories());
+        if(errors.hasErrors()){
+            return "admin/categoryAdding";
+        }
         categoryService.addCategory(category);
         return "redirect:/all";
     }

@@ -7,8 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import spring.entities.Category;
 import spring.entities.Product;
+import spring.objects.Cart;
 import spring.services.CategoryServiceInterface;
 import spring.services.ShopServiceInterface;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by Eoller on 18-Sep-17.
@@ -31,6 +34,12 @@ public class RestController {
     @RequestMapping(value = "/rest", method = RequestMethod.POST)
     public void create(@RequestBody Category category){
         categoryServiceInterface.addCategory(category);
+    }
+
+    @RequestMapping(value = "/rest/cart", method = RequestMethod.GET)
+    public Cart getRestCard(HttpSession httpSession){
+        Cart cart = (Cart) httpSession.getAttribute("cart");
+        return cart;
     }
 
 }

@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import spring.entities.Category;
+import spring.entities.Product;
 import spring.objects.Cart;
 import spring.objects.CartItem;
 import spring.services.ShopServiceInterface;
@@ -64,12 +66,20 @@ public class CartController {
 
     @RequestMapping(value = "/ajax/test/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Cart ajaxTest(@PathVariable Long id,HttpSession httpSession){
+    public List<CartItem> ajaxTest(@PathVariable Long id,HttpSession httpSession){
         Cart cart = new Cart();
         cart.addItem(new CartItem(shopServiceInterface.getProductById(id),1));
-        return cart;
+        return cart.getProductList();
     }
 
+
+
+    @RequestMapping(value = "/json/getList/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Product> ajaxTest2(@PathVariable Long id,HttpSession httpSession){
+        List<Product> productList = shopServiceInterface.searchProductByCategory(new Category(id));
+        return productList;
+    }
 
 
 

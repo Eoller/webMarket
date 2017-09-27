@@ -50,5 +50,6 @@
         <form:input path="name" class="form-control"
                     placeholder="Category name"/>
     </div>
-    <button type="submit" class="btn btn-default"><spring:message code="Add_Category"/></button>
+    <button type="submit" class="btn btn-default"><spring:message code="Add_Category"/></button></br>
+    <form:errors path="name" cssClass="error"/>
 </form:form>

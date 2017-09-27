@@ -1,10 +1,17 @@
 package spring.entities;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.Size;
+
 /**
  * Created by Eoller on 24-Aug-17.
  */
 public class Category implements java.io.Serializable{
     private Long id;
+
+    @NotEmpty
+    @Size(min = 3, max = 15, message = "{categoryName.size}")
     private String name;
 
     public Category(){}

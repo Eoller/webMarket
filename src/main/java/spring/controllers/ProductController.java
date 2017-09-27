@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import spring.entities.Category;
@@ -16,6 +17,7 @@ import spring.services.ShopServiceInterface;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.io.IOException;
 
 /**
@@ -43,8 +45,12 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/create", params = "form", method = RequestMethod.POST)
-    public String createProductPost(@ModelAttribute("product") Product product, @RequestParam("file") MultipartFile file, ModelMap modelMap) throws IOException {
-        modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
+    public String createProductPost(@Valid @ModelAttribute("product") Product product, Errors errors,@RequestParam("file") MultipartFile file, ModelMap modelMap) throws IOException {
+        if(errors.hasErrors()){
+            modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
+            modelMap.addAttribute("producerList", producerServiceInterface.getProducers());
+            return "admin/create";
+        }
         product.setPhoto(file.getBytes());
         shopServiceInterface.addProduct(new Product(product));
         return "redirect:/";
@@ -52,7 +58,6 @@ public class ProductController {
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String deleteProduct(@PathVariable("id") Long id, ModelMap modelMap) {
-        modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
         shopServiceInterface.removeProduct(id);
         return "redirect:/";
     }
@@ -78,8 +83,12 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/showDetails/{id}", params = "form", method = RequestMethod.POST)
-    public String editFormPost(@ModelAttribute("product") Product product, @PathVariable("id") Long id, ModelMap modelMap,@RequestParam("file") MultipartFile file, HttpServletRequest httpServletRequest) throws IOException {
-        modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
+    public String editFormPost(@Valid @ModelAttribute("product") Product product,Errors errors, @PathVariable("id") Long id, ModelMap modelMap,@RequestParam("file") MultipartFile file, HttpServletRequest httpServletRequest) throws IOException {
+        if(errors.hasErrors()){
+            modelMap.addAttribute("categoryList", categoryServiceInterface.getCategories());
+            modelMap.addAttribute("producerList", producerServiceInterface.getProducers());
+            return "edit";
+        }
         if(!file.isEmpty()){
             product.setPhoto(file.getBytes());
         }

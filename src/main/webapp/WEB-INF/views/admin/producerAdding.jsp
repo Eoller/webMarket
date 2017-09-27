@@ -50,5 +50,5 @@
         <form:input path="name" class="form-control"
                     placeholder="Producer name"/>
     </div>
-    <button type="submit" class="btn btn-default">Add Producer</button>
+    <button type="submit" class="btn btn-default">Add Producer</button></br><form:errors path="name" cssClass="error"/>
 </form:form>
