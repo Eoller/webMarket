@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:flow="http://www.springframework.org/schema/webflow-config"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd">
+
+
+    <flow:flow-executor id="mainflowExecutor" flow-registry="mainflowRegistry"/>
+
+    <flow:flow-registry id="mainflowRegistry" flow-builder-services="flowBuilder">
+        <flow:flow-location id="mainpain" path="/WEB-INF/flows/order.xml"/>
+    </flow:flow-registry>
+
+    <flow:flow-builder-services id="flowBuilder" view-factory-creator="flowViewResolver"/>
+
+    <bean id="flowViewResolver" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+        <property name="viewResolvers">
+            <list>
+                <ref bean="tileViewResolver"/>
+            </list>
+        </property>
+    </bean>
+
+
+</beans>

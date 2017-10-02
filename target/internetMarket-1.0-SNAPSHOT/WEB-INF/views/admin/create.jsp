@@ -41,6 +41,7 @@
 <div class="container-fluid">
     <div class="row">
         <form:form modelAttribute="product" method="post" enctype="multipart/form-data">
+
             <div class="form-group">
                 Product name:
 
@@ -58,7 +59,6 @@
                             placeholder="Product dscr"/>
                 <form:errors path="dscr" cssClass="error"/>
             </div>
-
             <div class="form-group">
                 Product unique number:
                 <form:input path="uniqueNumber" class="form-control"

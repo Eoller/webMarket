@@ -6,7 +6,10 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/spring/root-context.xml</param-value>
+        <param-value>/WEB-INF/spring/root-context.xml
+                     /WEB-INF/spring/webflow.xml
+                    /WEB-INF/spring/appServlet/servlet-context.xml
+        </param-value>
     </context-param>
 
     <listener>

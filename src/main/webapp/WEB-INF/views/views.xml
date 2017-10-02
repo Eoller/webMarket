@@ -45,6 +45,10 @@
         <put-attribute name="body" value="/WEB-INF/views/admin/producerAdding.jsp"/>
     </definition>
 
+    <definition extends="default" name="flowTry">
+        <put-attribute name="body" value="/WEB-INF/views/flowTry.jsp"/>
+    </definition>
+
     <definition extends="default" name="emailForm">
         <put-attribute name="body" value="/WEB-INF/views/contactForm.jsp"/>
     </definition>

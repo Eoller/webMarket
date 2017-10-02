@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-5">
@@ -32,7 +33,7 @@
             </form>
             <hr>
             <form action="${pageContext.request.contextPath}/cart/add/${product.id}">
-                <button type="submit" class="btn btn-default btn-md detailButton">Add to Card</button>
+                <button type="submit" onclick="seccessAddingToCart('${product.name}')" class="btn btn-default btn-md detailButton">Add to Card</button>
             </form>
             <!-- <button class="buttonload">
                  <i class="fa fa-spinner fa-spin"></i>Loading
@@ -67,9 +68,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <a href="${pageContext.request.contextPath}/delete/${product.id}" class="btn btn-primary"
-                       role="button">Delete</a>
+                    <a href="#" class="btn btn-primary"
+                       role="button" onclick="JustTestRest(${product.id})">Delete</a>
                 </div>
+
             </div>
         </div>
     </div>

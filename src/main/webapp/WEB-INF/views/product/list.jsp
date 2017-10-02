@@ -18,7 +18,7 @@
                             <div class="name" style="text-align: center;">
                                 <h4>${abc.name}</h4>
                             </div>
-                            <p>${abc.price}$</p>
+                            <strong><p>${abc.price}$</p></strong>
                             <p>
                                 <a href="#" class="btn btn-primary" role="button"><spring:message code="Buy"/></a>
                                 <a href="${pageContext.request.contextPath}/showDetails/${abc.id}"

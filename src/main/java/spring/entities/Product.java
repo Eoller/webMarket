@@ -1,5 +1,7 @@
 package spring.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.Min;
@@ -12,25 +14,31 @@ import java.util.Arrays;
  */
 public class Product implements java.io.Serializable {
 
+    @JsonProperty("id")
     private Long id;
 
+    @JsonProperty("name")
     @NotEmpty
     @Size(min = 3, max = 15)
     private String name;
 
+    @JsonProperty("price")
     @Min(100)
     private Long price;
 
+    @JsonIgnore
     @NotEmpty
     private String dscr;
 
+    @JsonIgnore
     private byte[] photo;
+    @JsonIgnore
     @NotEmpty
     @Size(min = 3, max = 30)
     private String uniqueNumber;
-
+    @JsonIgnore
     private Category categoryId;
-
+    @JsonIgnore
     private Producer producerId;
 
     public Product() {

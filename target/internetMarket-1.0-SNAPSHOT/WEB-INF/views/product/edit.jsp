@@ -65,7 +65,7 @@
                 <h3 class="panel-title">Description</h3>
             </div>
             <div class="panel-body">
-                <form:textarea cols="60" rows="8" path="dscr"/><form:errors path="dscr" cssClass="error"/>
+                <form:textarea id="productDscr" cols="60" rows="8" path="dscr"/><form:errors path="dscr" cssClass="error"/>
             </div>
         </div>
     </div>
